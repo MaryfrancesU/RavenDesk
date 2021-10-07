@@ -69,6 +69,7 @@ body {
   width: 100%;
   height: 6vh;
   font-size: 15px;
+  color: #5f18eb;
 }
 
 .index-container .row .formbox form button {
@@ -80,6 +81,10 @@ body {
   border: none;
   border-radius: 30%;
   font-size: 20px;
+}
+
+.index-container .row .formbox form button:hover {
+  background-color: #4b11bf;
 }
 
 .index-container .row .formbox form .errorMsg {
