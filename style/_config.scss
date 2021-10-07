@@ -1,0 +1,29 @@
+$font-stack: Times, Georgia, Garamond, serif;
+$primary-color: rgb(95, 24, 235);
+$secondary-color: rgb(217, 216, 217);
+
+* {
+    font-family: $font-stack;
+}
+
+body{
+    background-image: url("img/background.png");
+}
+
+.header-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+
+    #logo {
+        width: 10%;
+    }
+    
+    h1{
+        margin-left: 1%;
+        margin-top: 2%;
+        color: white;
+        font-size: 60px;
+    }
+}
+

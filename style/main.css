@@ -1,0 +1,88 @@
+* {
+  font-family: Times, Georgia, Garamond, serif;
+}
+
+body {
+  background-image: url("img/background.png");
+}
+
+.header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-row #logo {
+  width: 10%;
+}
+
+.header-row h1 {
+  margin-left: 1%;
+  margin-top: 2%;
+  color: white;
+  font-size: 60px;
+}
+
+.index-container {
+  display: flex;
+  margin-top: 2%;
+  align-items: center;
+}
+
+.index-container .row {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-container .row .formbox {
+  width: 20%;
+  height: 100%;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  background: #d9d8d9;
+  color: black;
+  padding: 2%;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px black;
+}
+
+.index-container .row .formbox form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.index-container .row .formbox form h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+}
+
+.index-container .row .formbox form input {
+  margin: 2%;
+  width: 100%;
+  height: 6vh;
+  font-size: 15px;
+}
+
+.index-container .row .formbox form button {
+  width: 80%;
+  height: 10vh;
+  margin-top: 4%;
+  color: #d9d8d9;
+  background-color: #5f18eb;
+  border: none;
+  border-radius: 30%;
+  font-size: 20px;
+}
+
+.index-container .row .formbox form .errorMsg {
+  background-color: red;
+  color: white;
+}
