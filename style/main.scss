@@ -1,5 +1,32 @@
 @import 'config';
 
+
+.projects-grid-container {
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16%;
+    grid-column-gap: 9vw;
+    grid-row-gap: 3vh;
+    padding: 5px;
+    margin-top: 5vh;
+    margin-left: 7vw;
+
+    div {
+        background-color: rgba(216, 253, 253, 0.452);
+        height: 45vh;
+        text-align: center;
+        border-radius: 1.5em;
+    }
+
+    #item1{   
+        a {
+            color: green;
+            font-size: 40vh;
+            text-decoration: none;
+        }
+    }
+
+}
+
 .index-container {
     display: flex;
     margin-top: 2%;
@@ -71,3 +98,9 @@
   
 }
 
+.nav-row{
+    a{
+        color: pink;
+        float: right;
+    }
+}

@@ -23,6 +23,29 @@ body {
   font-size: 60px;
 }
 
+.projects-grid-container {
+  display: grid;
+  grid-template-columns: 16% 16% 16% 16%;
+  grid-column-gap: 9vw;
+  grid-row-gap: 3vh;
+  padding: 5px;
+  margin-top: 5vh;
+  margin-left: 7vw;
+}
+
+.projects-grid-container div {
+  background-color: rgba(216, 253, 253, 0.452);
+  height: 45vh;
+  text-align: center;
+  border-radius: 1.5em;
+}
+
+.projects-grid-container #item1 a {
+  color: green;
+  font-size: 40vh;
+  text-decoration: none;
+}
+
 .index-container {
   display: flex;
   margin-top: 2%;
@@ -90,4 +113,9 @@ body {
 .index-container .row .formbox form .errorMsg {
   background-color: red;
   color: white;
+}
+
+.nav-row a {
+  color: pink;
+  float: right;
 }
