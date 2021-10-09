@@ -24,7 +24,7 @@
 
         <div class="row">
             <div class="formbox">
-                <form method="post" action="createuser.inc.php">
+                <form method="post" action="scripts/auth/createuser.inc.php">
                     <h3> Sign Up </h3>
                     
                     <input type="email" name="emailSignup" required placeholder="Email"> 
@@ -36,7 +36,7 @@
             </div>
 
             <div class="formbox">
-                <form method="post" action="loginuser.inc.php">
+                <form method="post" action="scripts/auth/loginuser.inc.php">
                     <h3> Log In </h3>
 
                     <input type="email" name="loginEmail" required placeholder="Email">

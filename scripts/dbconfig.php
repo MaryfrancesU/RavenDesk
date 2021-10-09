@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $servername = 'localhost';
+    $servername = "localhost";
     $database = "raven_desk";
     $username = "maryf";
     $password = "temppass";
