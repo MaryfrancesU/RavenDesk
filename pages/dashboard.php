@@ -51,9 +51,9 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addProjectModal')"> &times; </span>
                 
-                <form method="post" action="fantastic.inc.php">
-                    <input placeholder="Project Name"/>
-                    <button type="submit"> </button>
+                <form method="post" action="../scripts/addproject.inc.php">
+                    <input name="projectName" required placeholder="Project Name"/>
+                    <button type="submit" name="submit"> </button>
                 </form>
             </div>
         </div>
