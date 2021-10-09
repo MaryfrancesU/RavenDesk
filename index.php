@@ -26,13 +26,9 @@
             <div class="formbox">
                 <form method="post" action="createuser.inc.php">
                     <h3> Sign Up </h3>
-                    <!-- <label for="email"> Email </label> -->
+                    
                     <input type="email" name="emailSignup" required placeholder="Email"> 
-
-                    <!-- <label for="pass">Password</label> -->
                     <input type="password" name="passSignup" required placeholder="Password"> 
-
-                    <!-- <label for="conf">Confirm Password</label> -->
                     <input type="password" name="confSignup" required placeholder="Confirm Password"> 
 
                     <button type="submit" name="submitSignup"> Sign Up </button>
@@ -42,10 +38,8 @@
             <div class="formbox">
                 <form method="post" action="loginuser.inc.php">
                     <h3> Log In </h3>
-                    <!-- <label for="loginEmail"> Email </label> -->
-                    <input type="email" name="loginEmail" required placeholder="Email">
 
-                    <!-- <label for="loginPass">Password</label> -->
+                    <input type="email" name="loginEmail" required placeholder="Email">
                     <input type="password" name="loginPass" required placeholder="Password">
 
                     <button type="submit" name="submit2"> Log In </button>
