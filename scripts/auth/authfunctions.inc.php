@@ -62,9 +62,7 @@
 		mysqli_stmt_bind_param($stmt, "ss", $email, $hashedPwd);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
-		//loginUser($conn, $email, $password);
-		header("location:../../index.php");
-		exit();
+		loginUser($conn, $email, $password);
 	}
 
 
