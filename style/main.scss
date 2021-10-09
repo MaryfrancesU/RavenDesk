@@ -12,14 +12,18 @@
 
     div {
         background-color: rgba(216, 253, 253, 0.452);
+        padding: 5px;
         height: 45vh;
         text-align: center;
         border-radius: 1.5em;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: flex-end;       //To move text to the bottom   
     }
 
     #item1{   
         a {
-            color: green;
+            color: $primary-color;
             font-size: 40vh;
             text-decoration: none;
         }

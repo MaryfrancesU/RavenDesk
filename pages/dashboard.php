@@ -6,6 +6,13 @@
         header("location:../index.php?error=notloggedin");
     }
 
+    $titles = array(
+        1 => "That One Time I Got Reincarnated As A Slime ",
+        2 => "Harry Potter",
+        3 => "Red Winter",
+        4 => "The Wizard of Oz",
+    );
+
 ?>
 
 
@@ -29,10 +36,13 @@
 
         <div class="projects-grid-container">
             <div id="item1"> <a href="#">+</a> </div>
-            <div> That One Time I Got Reincarnated As A Slime </div>
-            <div> Title </div>
-            <div> Title </div>
-            <div> Title </div>
+            <?php 
+			    foreach($titles as $title) { ?>
+                    <div>
+                        <a> <?php echo htmlspecialchars($title)?> </a>
+                    </div>
+                <?php }
+		    ?>
         </div>
     
         
