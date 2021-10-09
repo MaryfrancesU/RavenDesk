@@ -39,10 +39,10 @@
                 <form method="post" action="scripts/auth/loginuser.inc.php">
                     <h3> Log In </h3>
 
-                    <input type="email" name="loginEmail" required placeholder="Email">
-                    <input type="password" name="loginPass" required placeholder="Password">
+                    <input type="email" name="emailLogin" required placeholder="Email">
+                    <input type="password" name="passLogin" required placeholder="Password">
 
-                    <button type="submit" name="submit2"> Log In </button>
+                    <button type="submit" name="submitLogin"> Log In </button>
                 </form>
                 
             </div>

@@ -20,12 +20,14 @@
 			exit();
 		}
 
-		mysqli_stmt_bind_param($stmt, "s", $email); //# of s corresponds to # of params
+        //Bind our parameters to the prepared statement, execute that statement
+        //then save the results of the query
+		mysqli_stmt_bind_param($stmt, "s", $email);
 		mysqli_stmt_execute($stmt);
-
 		$resultData = mysqli_stmt_get_result($stmt);
-		if ($row = mysqli_fetch_assoc($resultData)) { //creating variable while checking
-			return $row;
+
+		if ($row = mysqli_fetch_assoc($resultData)) {   //creating variable while checking
+			return $row;                                //this variable holds the row of the email taken
 		}
 		else{
 			$result = false;
@@ -84,7 +86,8 @@
 		else if($checkPwd === true){
 			session_start();
 			$_SESSION["userid"] = $emailExists["id"];
-			header("location:../../index.php");
+			$_SESSION["useremail"] = $emailExists["email"];
+			header("location:../../pages/dashboard.php");
 			exit();
 		}
 	}
