@@ -23,6 +23,7 @@
         <title> The Raven Desk </title>
         <link rel="stylesheet" href="../style/main.css"/>
         <script src="../scripts/main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 
 
@@ -40,11 +41,21 @@
             <div id="item1"> <a onclick="addProject()">+</a> </div>
             <?php 
 			    foreach($userProjects as $project) {
-                    $projlink = "./project.php?pid=".$project['id'];
+                    $projlink = "./project.php?pid=".$project['id']; 
                     ?>
                     
-                    <div onclick="location.href='<?php echo $projlink;?>'">
-                        <?php echo htmlspecialchars($project['name'])?>
+                    <div class="item" onclick="location.href='<?php echo $projlink;?>'">
+                        <div class="dropdown">
+                            <span class="kebab"> &#8942; </span>
+                            <div class="dropdown-content" id="ddc">
+                                <a href="http://www.google.com">Rename</a> <br>
+                                <a href="#">Delete</a> 
+                            </div>
+                        </div>
+                        
+                        <div class="title">
+                            <?php echo htmlspecialchars($project['name'])?>
+                        </div>
                     </div>
                 <?php }
 		    ?>
@@ -61,6 +72,18 @@
                 </form>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function(){
+                $(".dropdown").mouseenter(function(){
+                    $(this).children(".dropdown-content").css("display", "block");
+                });
+                $(".dropdown").mouseleave(function(){
+                    $(".dropdown-content").css("display", "none");
+                });
+            });
+
+        </script> 
     
         
     </body>

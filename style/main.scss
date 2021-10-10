@@ -11,15 +11,55 @@
     margin-top: 5vh;
     margin-left: 7vw;
 
-    div {
+
+    .item, #item1 {
         background-color: rgba(216, 253, 253, 0.452);
         padding: 5px;
         height: 45vh;
         text-align: center;
         border-radius: 1.5em;
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: flex-end;       //To move text to the bottom   
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;       //To move text to the bottom  
+
+        .title{
+            font-weight: bold;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+
+            .kebab{
+                color: black;
+                font-size: 25px;
+                font-weight: bold;
+                margin-left: 11vw;
+                vertical-align: top;
+                text-shadow: 2px 2px 10px $primary-color;   //xoffset, yoffset, blur radius, color
+
+                &:hover{
+                    color: $secondary-color;
+                }
+            }
+
+            .dropdown-content{
+                display: none;
+                margin-left: 12vw;
+                padding: 3%;
+                position: absolute;
+                background-color: $secondary-color;
+                min-width: 100px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+
+                a{
+                    text-decoration: none;
+                    color: $primary-color;
+                    line-height: 25px;
+                }
+            }
+        }
     }
 
     #item1{   
