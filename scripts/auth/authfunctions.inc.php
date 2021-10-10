@@ -85,6 +85,7 @@
 			session_start();
 			$_SESSION["userid"] = $emailExists["id"];
 			$_SESSION["useremail"] = $emailExists["email"];
+			$_SESSION["projuser"] = $_SESSION["userid"];		//upon login, you become the global project user
 			header("location:../../pages/dashboard.php");
 			exit();
 		}

@@ -6,12 +6,11 @@
         header("location:../index.php?error=notloggedin");
     }
 
-    $titles = array(
-        1 => "That One Time I Got Reincarnated As A Slime ",
-        2 => "Harry Potter",
-        3 => "Red Winter",
-        4 => "The Wizard of Oz",
-    );
+    //get projects where user id = session's user
+    $curruserid = $_SESSION["userid"];
+    $query = "SELECT id, name FROM projects WHERE user_id='$curruserid';";
+    $result = mysqli_query($conn, $query);
+	$userProjects = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
 
@@ -26,6 +25,7 @@
         <script src="../scripts/main.js"></script>
     </head>
 
+
     <body>
         <div class="nav-row">
             <a href="../scripts/auth/logoutuser.inc.php"> Logout </a>
@@ -35,12 +35,16 @@
             </div>
         </div>
 
+
         <div class="projects-grid-container">
             <div id="item1"> <a onclick="addProject()">+</a> </div>
             <?php 
-			    foreach($titles as $title) { ?>
-                    <div>
-                        <a> <?php echo htmlspecialchars($title)?> </a>
+			    foreach($userProjects as $project) {
+                    $projlink = "./project.php?pid=".$project['id'];
+                    ?>
+                    
+                    <div onclick="location.href='<?php echo $projlink;?>'">
+                        <?php echo htmlspecialchars($project['name'])?>
                     </div>
                 <?php }
 		    ?>
