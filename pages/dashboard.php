@@ -41,15 +41,16 @@
             <div id="item1"> <a onclick="addProject()">+</a> </div>
             <?php 
 			    foreach($userProjects as $project) {
-                    $projlink = "./project.php?pid=".$project['id']; 
+                    $projid = $project['id'];
+                    $projlink = "./project.php?pid=".$projid; 
                     ?>
                     
                     <div class="item" onclick="location.href='<?php echo $projlink;?>'">
                         <div class="dropdown">
                             <span class="kebab"> &#8942; </span>
-                            <div class="dropdown-content" id="ddc">
-                                <a href="http://www.google.com">Rename</a> <br>
-                                <a href="#">Delete</a> 
+                            <div class="dropdown-content">
+                                <button onclick="renameProj()">Rename</button> <br>
+                                <?php echo "<button onclick='deleteProj($projid)'> Delete </button>"; ?>
                             </div>
                         </div>
                         
@@ -82,7 +83,6 @@
                     $(".dropdown-content").css("display", "none");
                 });
             });
-
         </script> 
     
         

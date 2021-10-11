@@ -53,10 +53,15 @@
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                 z-index: 1;
 
-                a{
-                    text-decoration: none;
+                button{
+                    width: 100%;
+                    border: none;
                     color: $primary-color;
-                    line-height: 25px;
+                    background-color: $secondary-color;
+
+                    &:hover{
+                        background-color: darken($secondary-color, 10%);
+                    }
                 }
             }
         }

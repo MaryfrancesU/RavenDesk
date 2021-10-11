@@ -115,10 +115,15 @@ body {
   z-index: 1;
 }
 
-.projects-grid-container .item .dropdown .dropdown-content a, .projects-grid-container #item1 .dropdown .dropdown-content a {
-  text-decoration: none;
+.projects-grid-container .item .dropdown .dropdown-content button, .projects-grid-container #item1 .dropdown .dropdown-content button {
+  width: 100%;
+  border: none;
   color: #5f18eb;
-  line-height: 25px;
+  background-color: #d9d8d9;
+}
+
+.projects-grid-container .item .dropdown .dropdown-content button:hover, .projects-grid-container #item1 .dropdown .dropdown-content button:hover {
+  background-color: #c0bec0;
 }
 
 .projects-grid-container #item1 a {
