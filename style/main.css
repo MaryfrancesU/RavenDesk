@@ -93,10 +93,10 @@ body {
   width: 60%;
   height: 70vh;
   border-left: none;
-  background-color: #b7f0ed;
+  background-color: #d1bcf9;
 }
 
-button {
+.tabbutton {
   display: block;
   background-color: inherit;
   color: black;
@@ -111,11 +111,11 @@ button {
   font-size: 17px;
 }
 
-button:hover {
+.tabbutton:hover {
   background-color: #d8d8d8;
 }
 
-button.active {
+.tabbutton.active {
   background-color: #bebebe;
 }
 

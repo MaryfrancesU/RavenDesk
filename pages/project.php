@@ -58,19 +58,19 @@
 
         <!-- TAB MENU -->
         <div id="tabmenu">
-            <button class="tablinks" onclick="openTab(event, 'blurb')" id="defaultOpen"> Blurb </button>
-            <button class="tablinks" onclick="openTab(event, 'blurb')"> Plot </button>
-            <button class="tablinks" onclick="openTab(event, 'characters')"> Characters </button>
-            <button class="tablinks" onclick="openTab(event, 'blurb')"> World </button>
-            <button class="tablinks" onclick="openTab(event, 'blurb')"> Encylopedia </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')" id="defaultOpen"> Blurb </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')"> Plot </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'characters')"> Characters </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')"> World </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')"> Encylopedia </button>
         </div>
 
 
         <!-- CHARACTER TAB SUBMENU -->
         <div id="chartab">
-            <button class="ctablinks" onclick="openSubTab(event, 'Tokyo')">Tokyo</button>
-            <button class="ctablinks" onclick="openSubTab(event, 'Kyoto')">Kyoto</button>
-            <button class="ctablinks" onclick="openSubTab(event, 'Osaka')">Osaka</button>
+            <button class="tabbutton ctablinks" onclick="openSubTab(event, 'Tokyo')">Tokyo</button>
+            <button class="tabbutton ctablinks" onclick="openSubTab(event, 'Kyoto')">Kyoto</button>
+            <button class="tabbutton ctablinks" onclick="openSubTab(event, 'Osaka')">Osaka</button>
         </div>
 
 

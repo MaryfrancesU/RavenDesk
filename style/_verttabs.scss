@@ -1,6 +1,7 @@
 $tab-height: 70vh;
 $tab-margin-top: 1%;
 $tab-margin-left: 5%;
+$tab-content-color: lighten($primary-color, 35%);
 
 #tabmenu {
     float: left;
@@ -34,10 +35,11 @@ $tab-margin-left: 5%;
     width: 60%;
     height: $tab-height;
     border-left: none;
-    background-color: rgb(183, 240, 237);
+    //background-color: rgb(183, 240, 237);
+    background-color: $tab-content-color;
 }
 
-button {
+.tabbutton  {
     display: block;
     background-color: inherit;
     color: black;

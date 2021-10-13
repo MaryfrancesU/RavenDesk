@@ -1,0 +1,32 @@
+/* body{
+    background-color: #d1bcf9;
+} */
+
+
+/* BLURB PAGE */
+#bookcover {
+    background-color: antiquewhite;
+    width: 28vw;
+    height: 60vh;
+    margin-left: 34vw;
+    margin-bottom: 1%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#blurbinput{
+    /* border: 1px solid black; */
+    border: none;
+    width: 90%;
+    margin-left: 5%;
+    height: 30vh;
+    overflow: auto;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#blurbinput:focus{
+    background-color: rgba(255, 255, 255, 0.6);
+}

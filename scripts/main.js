@@ -81,3 +81,16 @@ function openTab(evt, tabName) {
     document.getElementById(subTabName).style.display = "block";
     evt.currentTarget.className += " active";
   }
+
+
+  function updateBlurb(event) {
+    var newblurb = event.currentTarget.value;
+    $.ajax({
+        url: "../scripts/blurb.inc.php",
+        type: "POST",	
+        data : {newblurb: newblurb},
+        success: function(response){
+            console.log("update blurb success");
+        }			
+    })
+}
