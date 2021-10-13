@@ -34,7 +34,7 @@
                     echo $blurb;
                 }
                 else{
-                    echo "Start typing...";
+                    echo "Start typing your blurb here...";
                 }
             ?>
         </textarea>
