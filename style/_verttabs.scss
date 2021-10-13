@@ -1,0 +1,61 @@
+$tab-height: 70vh;
+$tab-margin-top: 1%;
+$tab-margin-left: 5%;
+
+#tabmenu {
+    float: left;
+    width: 30%;
+    height: $tab-height;
+    background-color: $tab-color;
+    border: 1px solid $tab-border-color;
+    margin-top: $tab-margin-top;
+    margin-left: $tab-margin-left; 
+}
+
+#chartab{
+    display: none;
+    float: left;
+    border: 1px solid $tab-border-color;
+    background-color: $tab-color;
+    width: 15%;
+    height: $tab-height;
+    margin-top: $tab-margin-top;
+
+    button.active {
+        background-color: darken($tab-color, 20%);
+    }
+}
+
+.tabcontent {
+    float: left;
+    margin-top: $tab-margin-top;
+    padding: 0px 12px;
+    border: 1px solid $tab-border-color;
+    width: 60%;
+    height: $tab-height;
+    border-left: none;
+    background-color: rgb(183, 240, 237);
+}
+
+button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    height: 20%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+
+    &:hover{
+        background-color: darken($tab-color, 10%);
+    }
+
+    &.active{
+        background-color: darken($tab-color, 20%);
+    }
+}
