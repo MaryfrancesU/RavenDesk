@@ -1,11 +1,3 @@
-* {
-  font-family: Times, Georgia, Garamond, serif;
-}
-
-body {
-  background-image: url("img/background.png");
-}
-
 .header-row {
   display: flex;
   flex-direction: row;
@@ -71,20 +63,6 @@ body {
   margin-left: 5%;
 }
 
-#chartab {
-  display: none;
-  float: left;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  width: 15%;
-  height: 70vh;
-  margin-top: 1%;
-}
-
-#chartab button.active {
-  background-color: #bebebe;
-}
-
 .tabcontent {
   float: left;
   margin-top: 1%;
@@ -117,6 +95,66 @@ body {
 
 .tabbutton.active {
   background-color: #bebebe;
+}
+
+.subtabbutton {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 5%;
+  width: 100%;
+  height: 10%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.subtabbutton:hover {
+  background-color: #d8d8d8;
+}
+
+.subtabbutton.active {
+  background-color: #bebebe;
+}
+
+.addbutton {
+  width: 80%;
+  height: 10vh;
+  margin: 4% 10%;
+  color: #d9d8d9;
+  background-color: #5f18eb;
+  border: none;
+  border-radius: 30%;
+  font-size: 40px;
+}
+
+.addbutton:hover {
+  background-color: #4b11bf;
+}
+
+#chartab {
+  display: none;
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 15%;
+  height: 70vh;
+  margin-top: 1%;
+}
+
+#chartab button.active {
+  background-color: #bebebe;
+}
+
+* {
+  font-family: Times, Georgia, Garamond, serif;
+}
+
+body {
+  background-image: url("img/background.png");
 }
 
 .projects-grid-container {

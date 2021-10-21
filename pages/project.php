@@ -59,30 +59,46 @@
         <!-- TAB MENU -->
         <div id="tabmenu">
             <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')" id="defaultOpen"> Blurb </button>
-            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')"> Plot </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'plot')"> Plot </button>
             <button class="tabbutton tablinks" onclick="openTab(event, 'characters')"> Characters </button>
-            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')"> World </button>
-            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')"> Encylopedia </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'world')"> World </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'encyclopedia')"> Encylopedia </button>
         </div>
 
 
         <!-- CHARACTER TAB SUBMENU -->
         <div id="chartab">
-            <button class="tabbutton ctablinks" onclick="openSubTab(event, 'Tokyo')">Tokyo</button>
-            <button class="tabbutton ctablinks" onclick="openSubTab(event, 'Kyoto')">Kyoto</button>
-            <button class="tabbutton ctablinks" onclick="openSubTab(event, 'Osaka')">Osaka</button>
+            <button class="addbutton" onclick="addCharacter()"> + </button>
+
+            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Tokyo')">Tokyo</button>
+            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Kyoto')">Kyoto</button>
+            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Osaka')">Osaka</button>
         </div>
 
 
-        <!-- ALL TAB CONTENT -->
+        <!-- MAJOR TAB CONTENT -->
         <div id="blurb" class="tabcontent">
             <iframe src="blurb.php"> </iframe>
+        </div>
+
+        <div id="plot" class="tabcontent">
+            <iframe src="plot.php"> </iframe>
         </div>
 
         <div id="characters" class="tabcontent">
             <iframe src="character.php"> </iframe>
         </div>
 
+        <div id="world" class="tabcontent">
+            <iframe src="world.php"> </iframe>
+        </div>
+
+        <div id="encyclopedia" class="tabcontent">
+            <iframe src="encyclopedia.php"> </iframe>
+        </div>
+
+
+        <!-- OTHER TAB CONTENT -->
         <div id="Tokyo" class="tabcontent">
             <h3>Tokyo</h3>
             <p>Tokyo is the most well-known city in Japan.</p>

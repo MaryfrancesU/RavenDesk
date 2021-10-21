@@ -13,20 +13,6 @@ $tab-content-color: lighten($primary-color, 35%);
     margin-left: $tab-margin-left; 
 }
 
-#chartab{
-    display: none;
-    float: left;
-    border: 1px solid $tab-border-color;
-    background-color: $tab-color;
-    width: 15%;
-    height: $tab-height;
-    margin-top: $tab-margin-top;
-
-    button.active {
-        background-color: darken($tab-color, 20%);
-    }
-}
-
 .tabcontent {
     float: left;
     margin-top: $tab-margin-top;
@@ -58,6 +44,58 @@ $tab-content-color: lighten($primary-color, 35%);
     }
 
     &.active{
+        background-color: darken($tab-color, 20%);
+    }
+}
+
+.subtabbutton  {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 5%;
+    width: 100%;
+    height: 10%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+
+    &:hover{
+        background-color: darken($tab-color, 10%);
+    }
+
+    &.active{
+        background-color: darken($tab-color, 20%);
+    }
+}
+
+.addbutton{
+    width: 80%;
+    height: 10vh;
+    margin: 4% 10%;
+    color: $secondary-color;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 30%;
+    font-size: 40px;
+
+    &:hover{
+        background-color: darken($primary-color, 10%);
+    }
+}
+
+#chartab{
+    display: none;
+    float: left;
+    border: 1px solid $tab-border-color;
+    background-color: $tab-color;
+    width: 15%;
+    height: $tab-height;
+    margin-top: $tab-margin-top;
+
+    button.active {
         background-color: darken($tab-color, 20%);
     }
 }
