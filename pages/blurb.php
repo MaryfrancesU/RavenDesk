@@ -23,10 +23,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 
+    
     <body>
         <div id="bookcover">
             Book Cover
         </div>
+
+        <form method="POST" action="../scripts/addprojimg.inc.php" enctype="multipart/form-data">
+            <input type="file" name="projImg"/>
+            <button type="submit" name="submitImg"> Upload </button>
+        </form>
 
         <textarea id="blurbinput" onchange="updateBlurb(event)"> 
             <?php 
