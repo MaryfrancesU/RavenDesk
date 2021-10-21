@@ -21,6 +21,7 @@ function addCharacter(){
 			if (response){
 				alert(response);
 			}
+			console.log("char add sucess");
     });
 }
 
