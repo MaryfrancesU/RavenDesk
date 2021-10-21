@@ -68,7 +68,7 @@
 
         <!-- CHARACTER TAB SUBMENU -->
         <div id="chartab">
-            <button class="addbutton" onclick="addCharacter()"> + </button>
+            <button class="addbutton" onclick="openModal('addCharacterModal')"> + </button>
 
             <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Tokyo')">Tokyo</button>
             <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Kyoto')">Kyoto</button>
@@ -112,6 +112,20 @@
         <div id="Osaka" class="tabcontent">
             <h3>Osaka</h3>
             <p>Osaka is a city in the south of Japan.</p>
+        </div>
+
+
+
+        <!-- MODALS -->
+        <div id="addCharacterModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('addCharacterModal')"> &times; </span>
+                
+                <form method="post">
+                    <input id="charName" placeholder="Character Name"/>
+                    <button type="button" onclick="addCharacter()"> Create </button>
+                </form>
+            </div>
         </div>
 
 

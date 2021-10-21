@@ -17,6 +17,7 @@
         mysqli_stmt_close($stmt);
     }
     else{
-        header("location:../pages/dashboard.php?error=nosubmit");
+        $pid = $_SESSION["projid"];
+        header("location:../pages/project.php?pid=$pid&error=nonewblurb");
     }
 ?>

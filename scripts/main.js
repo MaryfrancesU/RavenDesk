@@ -10,6 +10,31 @@ function addProject() {
 
 }
 
+function addCharacter(){
+	closeModal("addCharacterModal");
+
+	var charName = $("#charName").val();
+
+	$.post("../scripts/character.inc.php", 
+		{ request: "add", name: charName },
+    	function(response) {
+			if (response){
+				alert(response);
+			}
+    });
+}
+
+function openModal(modalID){
+	var modal = document.getElementById(modalID);
+    modal.style.display = "block";
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+    }
+}
+
 function closeModal(modalID) {
     var modal = document.getElementById(modalID);
     modal.style.display = "none";
