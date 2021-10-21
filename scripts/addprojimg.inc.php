@@ -39,15 +39,25 @@
                     header("Location: ../pages/blurb.php");
                 }
                 else{
-                    echo "Your file is too big.";
+                    echo '<script>
+                        window.confirm("Your file is too big.");
+                        window.location = "../pages/blurb.php";        
+                    </script>';
                 }    
             }
             else{
-                echo "There was an error uploading your file";
+                echo '<script>
+                    window.confirm("There was an error uploading your file.");
+                    window.location = "../pages/blurb.php";        
+                </script>';
             }
         }
         else{
-            echo "You cannot upload files of this type";
+            echo '<script>
+                window.confirm("You cannot upload files of this type.");
+                window.location = "../pages/blurb.php";        
+            </script>';
+            
         }
     }
 ?>

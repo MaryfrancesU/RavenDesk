@@ -4,7 +4,17 @@
 
 
 /* BLURB PAGE */
-#bookcover {
+#bookcover{
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid black;
+    width: 28vw;
+    height: 60vh;
+    object-fit: cover;
+    margin-left: 34vw;
+    margin-bottom: 1%;
+}
+
+#nobookcover {
     background-color: antiquewhite;
     width: 28vw;
     height: 60vh;
@@ -13,6 +23,12 @@
 
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+#buttonrow{
+    display: flex;
+    flex-direction: row;
     justify-content: center;
 }
 
