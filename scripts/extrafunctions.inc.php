@@ -29,6 +29,20 @@
             }
         }
 
+
+        //SEND APPROPRIATE ID TO IFRAME
+        else if ($_POST['request'] === "forIframe"){
+            $group = $_POST['group'];
+            $entryid = $_POST['id'];
+
+            if ($group === "etablinks"){
+                $_SESSION["encyid"] = $entryid;
+                echo $entryid;
+                // header("location:../pages/encyclopedia.php");
+            }
+        }
+
+
     }
     else{
         header("location:../pages/dashboard.php?error=norequest");

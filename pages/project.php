@@ -105,7 +105,8 @@
         </div>
 
         <div id="encyclopedia" class="tabcontent">
-            <iframe src="encyclopedia.php"> </iframe>
+            Welcome to your Encylopedia!
+            <!-- <iframe src="encyclopedia.php"> </iframe> -->
         </div>
 
 
@@ -115,8 +116,8 @@
                 $title = $article['title'];
                 $articleid = $article['id']; ?>
                 <div id=<?php echo $articleid;?> class='tabcontent'> 
-                    <h3> <?php echo $title;?> </h3>
-                    
+                    <!-- <h3> <?php echo $title;?> </h3> -->
+                    <iframe src="encyclopedia.php"> </iframe>
                 </div>
             <?php }
         ?>

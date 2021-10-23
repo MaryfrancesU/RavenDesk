@@ -1,3 +1,17 @@
+<?php
+
+    //include '/home/mumeora/dbconfig.php';
+    include '../scripts/dbconfig.php';
+
+    $encyid =  $_SESSION["encyid"];
+    $query = "SELECT title, description FROM encyclopedia WHERE id='$encyid';";
+    $result = mysqli_query($conn, $query);
+    $article = mysqli_fetch_all($result, MYSQLI_ASSOC)[0];
+    $title = $article['title'];
+    $description = $article['description'];
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head> 
@@ -7,7 +21,14 @@
     </head>
 
     <body>
-        On the encyclopedia, you can....
+        <h3> <?php echo $title; ?> </h3>
+
+        <textarea class="fwtextarea" onchange="updateArticle(<?php echo $encyid ?>, 'desc', event)"><?php if($description !== NULL){echo $description;}
+                else{
+                    echo "Start typing here...";
+                }
+            ?>
+        </textarea>
     </body>
 
 </html>

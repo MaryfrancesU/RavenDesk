@@ -56,7 +56,7 @@
             </form>
         </div>
 
-        <textarea id="blurbinput" onchange="updateBlurb(event)"> 
+        <textarea class="fwtextarea" onchange="updateBlurb(event)"> 
             <?php 
                 if($blurb !== NULL){
                     echo $blurb;

@@ -137,19 +137,51 @@ function openTab(evt, tabName) {
     }
   
     //now get the tab content and display it
-    document.getElementById(subTabName).style.display = "block";
+    var subtabId = document.getElementById(subTabName);
+    subtabId.style.display = "block";
     evt.currentTarget.className += " active";
+
+
+    //Now send information to appropriate iframe
+    $.ajax({
+      url: "../scripts/extrafunctions.inc.php",
+      type: "POST",	
+      data : {request: "forIframe", group: group, id: subTabName},
+      success: function(response){
+        console.log("send info to iframe success" + response);
+        switch(group){
+          case 'ctablinks':
+            break;
+          case 'etablinks':
+            subtabId.innerHTML = "<iframe src='../pages/encyclopedia.php'> </iframe>";
+          default:
+            break;
+        }
+      }			
+    })
   }
 
 
-  function updateBlurb(event) {
-    var newblurb = event.currentTarget.value;
-    $.ajax({
-        url: "../scripts/blurb.inc.php",
-        type: "POST",	
-        data : {newblurb: newblurb},
-        success: function(response){
-            console.log("update blurb success");
-        }			
-    })
+function updateBlurb(event) {
+  var newblurb = event.currentTarget.value;
+  $.ajax({
+      url: "../scripts/blurb.inc.php",
+      type: "POST",	
+      data : {newblurb: newblurb},
+      success: function(response){
+        console.log("update blurb success");
+      }			
+  })
+}
+
+function updateArticle(id, field, event) {
+  var newvalue = event.currentTarget.value;
+  $.ajax({
+      url: "../scripts/encyclopedia.inc.php",
+      type: "POST",	
+      data : {request: "edit", id:id, field: field, newvalue: newvalue},
+      success: function(response){
+        console.log("update artice success");
+      }			
+  })
 }

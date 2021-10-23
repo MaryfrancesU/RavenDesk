@@ -3,9 +3,10 @@
     //include '/home/mumeora/dbconfig.php';
     include './dbconfig.php';
 
+
     if (isset($_POST['request'])){
 
-        //ADD ARTICLE
+        //ADD ENCYCLOPEDIA ARTICLE
         if ($_POST['request'] === "add"){
             $title = $_POST['title'];
             $pid = $_SESSION['projid'];
@@ -21,10 +22,34 @@
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
         }
+
+        else if ($_POST['request'] === "edit"){
+            $id = $_POST['id'];
+            $newvalue = $_POST['newvalue'];
+
+            if ($_POST['field'] === "title"){
+                $query = "UPDATE encyclopedia SET title=? WHERE id='$id'";
+            }
+            else{
+                $query = "UPDATE encyclopedia SET description=? WHERE id='$id'";
+            }
+
+            $stmt = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($stmt, $query);
+
+            mysqli_stmt_bind_param($stmt, "s", $newvalue);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        }
+
         else{
             echo "Something went wrong";
         }
     }
+    
+    
+    
+    
     else{
         $pid = $_SESSION["projid"];
         header("location:../pages/project.php?pid=$pid&error=norequest");
