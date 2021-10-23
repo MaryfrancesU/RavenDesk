@@ -10,6 +10,21 @@ function addProject() {
 
 }
 
+function addArticle(){
+  closeModal("addEncyclopediaModal");
+
+	var articleTitle = $("#articleTitle").val();
+
+	$.post("../scripts/encyclopedia.inc.php", 
+		{ request: "add", title: articleTitle },
+    	function(response) {
+			if (response){
+				alert(response);
+			}
+			console.log("article add sucess");
+    });
+}
+
 function addCharacter(){
 	closeModal("addCharacterModal");
 
@@ -79,12 +94,20 @@ function openTab(evt, tabName) {
   
     if(tabName == 'characters'){
       document.getElementById("tabmenu").style.width = "15%";
+      document.getElementById("encytab").style.display = "none";
       document.getElementById("chartab").style.display = "block";
+      document.getElementById(tabName).style.display = "block";
+    }
+    else if(tabName == 'encyclopedia'){
+      document.getElementById("tabmenu").style.width = "15%";
+      document.getElementById("chartab").style.display = "none";
+      document.getElementById("encytab").style.display = "block";
       document.getElementById(tabName).style.display = "block";
     }
     else {
       document.getElementById("tabmenu").style.width = "30%";
       document.getElementById("chartab").style.display = "none";
+      document.getElementById("encytab").style.display = "none";
       document.getElementById(tabName).style.display = "block";
     }    
 }

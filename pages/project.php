@@ -67,12 +67,21 @@
 
 
         <!-- CHARACTER TAB SUBMENU -->
-        <div id="chartab">
+        <div class="subtabmenu" id="chartab">
             <button class="addbutton" onclick="openModal('addCharacterModal')"> + </button>
 
             <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Tokyo')">Tokyo</button>
             <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Kyoto')">Kyoto</button>
             <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Osaka')">Osaka</button>
+        </div>
+
+        <!-- ENCYCLOPEDIA TAB SUBMENU -->
+        <div class="subtabmenu" id="encytab">
+            <button class="addbutton" onclick="openModal('addEncyclopediaModal')"> + </button>
+
+            <button class="subtabbutton etablinks">Ency1</button>
+            <button class="subtabbutton etablinks">Ency2</button>
+            <button class="subtabbutton etablinks">Ency3</button>
         </div>
 
 
@@ -124,6 +133,17 @@
                 <form method="post">
                     <input id="charName" placeholder="Character Name"/>
                     <button type="button" onclick="addCharacter()"> Create </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="addEncyclopediaModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('addEncyclopediaModal')"> &times; </span>
+                
+                <form method="post">
+                    <input id="articleTitle" placeholder="Article Name"/>
+                    <button type="button" onclick="addArticle()"> Create </button>
                 </form>
             </div>
         </div>

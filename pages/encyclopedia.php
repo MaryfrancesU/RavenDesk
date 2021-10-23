@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        This is the encyclopedia page.
+        On the encyclopedia, you can....
     </body>
 
 </html>
