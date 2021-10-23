@@ -17,24 +17,20 @@
     $_SESSION["projuser"] = intval($currentProject[0]['user_id']);
     $_SESSION["projname"] = $currentProject[0]['name'];
 
-
     if ($_SESSION["userid"] !== $_SESSION["projuser"]){
         header("location:../pages/dashboard.php?error=noaccess");
     }
-    // else{
-    //     echo "<br><br>PID from URL: ".$_GET["pid"]."<br><br>";
 
-    //     echo "Proj ID: ".$_SESSION["projid"]."<br>";
-    //     echo "Proj ID Type: ".gettype($_SESSION["projid"])."<br><br>";
 
-    //     echo "Curr User: ".$_SESSION["userid"]."<br>";
-    //     echo "Curr User Type: ".gettype($_SESSION["userid"])."<br>";
-    //     echo "Proj User: ".$_SESSION["projuser"]." (".$_SESSION["useremail"].")<br>";
-    //     echo "Proj User Type: ".gettype($_SESSION["projuser"])."<br><br>";
-    //     echo "Proj Name: ".$_SESSION["projname"]."<br>";
-    // }
+
+    //Get all project encyclopedia entries
+    $encyQuery = "SELECT id, title, description FROM encyclopedia WHERE project_id='$currprojid';";
+    $encyResult = mysqli_query($conn, $encyQuery);
+	$articles = mysqli_fetch_all($encyResult, MYSQLI_ASSOC);
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -58,11 +54,11 @@
 
         <!-- TAB MENU -->
         <div id="tabmenu">
-            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')" id="defaultOpen"> Blurb </button>
-            <button class="tabbutton tablinks" onclick="openTab(event, 'plot')"> Plot </button>
-            <button class="tabbutton tablinks" onclick="openTab(event, 'characters')"> Characters </button>
-            <button class="tabbutton tablinks" onclick="openTab(event, 'world')"> World </button>
-            <button class="tabbutton tablinks" onclick="openTab(event, 'encyclopedia')"> Encylopedia </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'blurb')" id="btab"> Blurb </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'plot')" id="ptab"> Plot </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'characters')" id="ctab"> Characters </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'world')" id="wtab"> World </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'encyclopedia')" id="etab"> Encylopedia </button>
         </div>
 
 
@@ -79,9 +75,11 @@
         <div class="subtabmenu" id="encytab">
             <button class="addbutton" onclick="openModal('addEncyclopediaModal')"> + </button>
 
-            <button class="subtabbutton etablinks">Ency1</button>
-            <button class="subtabbutton etablinks">Ency2</button>
-            <button class="subtabbutton etablinks">Ency3</button>
+            <?php
+                foreach($articles as $article) { 
+                    echo "<button class='subtabbutton etablinks'>".$article['title']."</button>";
+                }
+            ?>
         </div>
 
 
@@ -147,11 +145,26 @@
                 </form>
             </div>
         </div>
-
-
-        <script>
-            document.getElementById("defaultOpen").click();
-        </script>
+            
+        
+        <?php
+            if ($_SESSION["defaultOpen"] === "btab"){
+                echo "<script> document.getElementById('btab').click(); </script>";
+            }
+            else if ($_SESSION["defaultOpen"] === "ptab"){
+                echo "<script> document.getElementById('ptab').click(); </script>";
+            }
+            else if ($_SESSION["defaultOpen"] === "ctab"){
+                echo "<script> document.getElementById('ctab').click(); </script>";
+            }
+            else if ($_SESSION["defaultOpen"] === "wtab"){
+                echo "<script> document.getElementById('wtab').click(); </script>";
+            }
+            else {
+                echo "<script> document.getElementById('etab').click(); </script>";
+            }
+        ?>
+        
     </body>
 
 </html>

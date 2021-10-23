@@ -18,10 +18,11 @@ function addArticle(){
 	$.post("../scripts/encyclopedia.inc.php", 
 		{ request: "add", title: articleTitle },
     	function(response) {
-			if (response){
-				alert(response);
-			}
-			console.log("article add sucess");
+        if (response){
+          alert(response);
+        }
+        console.log("article add sucess");
+        location.reload();
     });
 }
 
@@ -33,10 +34,10 @@ function addCharacter(){
 	$.post("../scripts/character.inc.php", 
 		{ request: "add", name: charName },
     	function(response) {
-			if (response){
-				alert(response);
-			}
-			console.log("char add sucess");
+        if (response){
+          alert(response);
+        }
+        console.log("char add sucess");
     });
 }
 
@@ -60,8 +61,8 @@ function closeModal(modalID) {
 function deleteProj(projid){
     $.ajax({
         url: "../scripts/delproject.inc.php",		//page containing php you want to run
-        type: "POST",						        //request type
-        data : {projectid: projid},				    //data to be sent to the server
+        type: "POST",						                //request type
+        data : {projectid: projid},				      //data to be sent to the server
         success: function(response){		        //function to be called if the request succeeds
             console.log("delete success");
             location.reload();
@@ -109,7 +110,13 @@ function openTab(evt, tabName) {
       document.getElementById("chartab").style.display = "none";
       document.getElementById("encytab").style.display = "none";
       document.getElementById(tabName).style.display = "block";
-    }    
+    }  
+    
+    $.post("../scripts/extrafunctions.inc.php", 
+		  { request: "changeDefaultOpen", tab: tabName },
+    	function(response) {
+			  console.log("change default open sucess");
+      });
 }
   
   
