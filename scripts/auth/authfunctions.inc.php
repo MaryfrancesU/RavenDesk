@@ -86,6 +86,7 @@
 			$_SESSION["userid"] = $emailExists["id"];
 			$_SESSION["useremail"] = $emailExists["email"];
 			$_SESSION["projuser"] = $_SESSION["userid"];		//upon login, you become the global project user
+			$_SESSION["defaultOpen"] = "btab";
 			header("location:../../pages/dashboard.php");
 			exit();
 		}

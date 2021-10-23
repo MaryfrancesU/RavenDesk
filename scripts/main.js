@@ -91,13 +91,15 @@ function openTab(evt, tabName) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
+    //Make current button "active" i.e. clicked on
     evt.currentTarget.className += " active";
   
+    //Show tabcontent and subtab menu if applicable
     if(tabName == 'characters'){
       document.getElementById("tabmenu").style.width = "15%";
       document.getElementById("encytab").style.display = "none";
-      document.getElementById("chartab").style.display = "block";
-      document.getElementById(tabName).style.display = "block";
+      document.getElementById("chartab").style.display = "block"; //submenu
+      document.getElementById(tabName).style.display = "block";   //tabcontent
     }
     else if(tabName == 'encyclopedia'){
       document.getElementById("tabmenu").style.width = "15%";
@@ -112,6 +114,7 @@ function openTab(evt, tabName) {
       document.getElementById(tabName).style.display = "block";
     }  
     
+    //Change default open tab
     $.post("../scripts/extrafunctions.inc.php", 
 		  { request: "changeDefaultOpen", tab: tabName },
     	function(response) {
@@ -120,20 +123,20 @@ function openTab(evt, tabName) {
 }
   
   
-  function openSubTab(evt, subTabName) {
+  function openSubTab(evt, group, subTabName) {
     //hide other tab content
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
   
-    //deselect other buttons
-    tablinks = document.getElementsByClassName("ctablinks");
+    //deselect other buttons within the same sub menu e.g ctablinks
+    tablinks = document.getElementsByClassName(group);
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
   
-    //now get the tab content with the cityname and display it
+    //now get the tab content and display it
     document.getElementById(subTabName).style.display = "block";
     evt.currentTarget.className += " active";
   }

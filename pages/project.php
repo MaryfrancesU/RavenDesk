@@ -66,9 +66,9 @@
         <div class="subtabmenu" id="chartab">
             <button class="addbutton" onclick="openModal('addCharacterModal')"> + </button>
 
-            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Tokyo')">Tokyo</button>
-            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Kyoto')">Kyoto</button>
-            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'Osaka')">Osaka</button>
+            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'ctablinks', 'Tokyo')">Tokyo</button>
+            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'ctablinks', 'Kyoto')">Kyoto</button>
+            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'ctablinks', 'Osaka')">Osaka</button>
         </div>
 
         <!-- ENCYCLOPEDIA TAB SUBMENU -->
@@ -77,8 +77,12 @@
 
             <?php
                 foreach($articles as $article) { 
-                    echo "<button class='subtabbutton etablinks'>".$article['title']."</button>";
-                }
+                    $title = $article['title'];
+                    $articleid = $article['id']; ?>
+                    <button class="subtabbutton etablinks" onclick="openSubTab(event, 'etablinks', <?php echo $articleid ?>)">
+                        <?php echo $title; ?>
+                    </button>
+                <?php }
             ?>
         </div>
 
@@ -103,6 +107,20 @@
         <div id="encyclopedia" class="tabcontent">
             <iframe src="encyclopedia.php"> </iframe>
         </div>
+
+
+        <!-- ENCYCLOPEDIA TAB CONTENT -->
+        <?php
+            foreach($articles as $article) { 
+                $title = $article['title'];
+                $articleid = $article['id']; ?>
+                <div id=<?php echo $articleid;?> class='tabcontent'> 
+                    <h3> <?php echo $title;?> </h3>
+                    
+                </div>
+            <?php }
+        ?>
+
 
 
         <!-- OTHER TAB CONTENT -->
@@ -146,7 +164,7 @@
             </div>
         </div>
             
-        
+
         <?php
             if ($_SESSION["defaultOpen"] === "btab"){
                 echo "<script> document.getElementById('btab').click(); </script>";
