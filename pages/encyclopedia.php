@@ -21,7 +21,7 @@
     </head>
 
     <body>
-        <h3> <?php echo $title; ?> </h3>
+        <input class="h3input" value="<?php echo $title; ?>" onchange="updateArticle(<?php echo $encyid ?>, 'title', event)">
 
         <textarea class="fwtextarea" onchange="updateArticle(<?php echo $encyid ?>, 'desc', event)"><?php if($description !== NULL){echo $description;}
                 else{
