@@ -31,7 +31,7 @@
         <div class="nav-row">
             <a href="../scripts/auth/logoutuser.inc.php"> Logout </a>
             <div class="header-row">
-                <img id="logo" src="../style/img/logo.png">
+                <img id="logo" src="../style/img/logo.png" onclick="logo()">
                 <h1> Projects </h1>
             </div>
         </div>

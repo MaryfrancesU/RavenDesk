@@ -1,3 +1,7 @@
+function logo(){
+  window.location.href = "../pages/dashboard.php";
+}
+
 function addProject() {
     var modal = document.getElementById("addProjectModal");
     modal.style.display = "block";
