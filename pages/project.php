@@ -23,10 +23,16 @@
 
 
 
-    //Get all project encyclopedia entries
+    //Get all project encyclopedia entries, then sort alphabetically
     $encyQuery = "SELECT id, title, description FROM encyclopedia WHERE project_id='$currprojid';";
     $encyResult = mysqli_query($conn, $encyQuery);
 	$articles = mysqli_fetch_all($encyResult, MYSQLI_ASSOC);
+
+    $titlearr = array();
+    foreach ($articles as $key => $row) {
+        $titlearr[$key] = $row['title'];
+    }
+    array_multisort($titlearr, SORT_ASC, $articles);
 
 ?>
 
