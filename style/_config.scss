@@ -4,6 +4,10 @@ $secondary-color: rgb(217, 216, 217);
 $tab-color: #f1f1f1;
 $tab-border-color: #ccc;
 
+* {
+    font-family: $font-stack;
+}
+
 .header-row {
     display: flex;
     flex-direction: row;

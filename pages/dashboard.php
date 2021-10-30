@@ -35,7 +35,7 @@
                 <h1> Projects </h1>
             </div>
         </div>
-
+  
 
         <div class="projects-grid-container">
             <div id="item1"> <a onclick="addProject()">+</a> </div>

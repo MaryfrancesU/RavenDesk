@@ -1,3 +1,7 @@
+* {
+  font-family: Times, Georgia, Garamond, serif;
+}
+
 .header-row {
   display: flex;
   flex-direction: row;
@@ -147,10 +151,6 @@
 
 .subtabmenu button.active {
   background-color: #bebebe;
-}
-
-* {
-  font-family: Times, Georgia, Garamond, serif;
 }
 
 body {

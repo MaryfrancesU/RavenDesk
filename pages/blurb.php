@@ -49,7 +49,7 @@
             }
         ?>
         
-        <div id="buttonrow">
+        <div class="buttonrow">
             <form method="POST" action="../scripts/addprojimg.inc.php" enctype="multipart/form-data">
                 <input type="file" name="projImg" required/>
                 <button type="submit" name="submitImg"> <?php echo $buttontext; ?> </button>
