@@ -95,6 +95,12 @@ function openTab(evt, tabName) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
+    //Get all subtablinks and reset activeness
+    subtablinks = document.getElementsByClassName("subtabbutton");
+    for (i = 0; i < subtablinks.length; i++) {
+      subtablinks[i].className = subtablinks[i].className.replace(" active", "");
+    }
+
     //Make current button "active" i.e. clicked on
     evt.currentTarget.className += " active";
   

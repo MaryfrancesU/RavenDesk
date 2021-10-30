@@ -22,6 +22,11 @@
     }
 
 
+    //Get all project characters
+    $charQuery = "SELECT id, name FROM characters WHERE project_id='$currprojid';";
+    $charResult = mysqli_query($conn, $charQuery);
+	$characters = mysqli_fetch_all($charResult, MYSQLI_ASSOC);
+
 
     //Get all project encyclopedia entries, then sort alphabetically
     $encyQuery = "SELECT id, title, description FROM encyclopedia WHERE project_id='$currprojid';";
@@ -72,9 +77,19 @@
         <div class="subtabmenu" id="chartab">
             <button class="addbutton" onclick="openModal('addCharacterModal')"> + </button>
 
-            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'ctablinks', 'Tokyo')">Tokyo</button>
-            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'ctablinks', 'Kyoto')">Kyoto</button>
-            <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'ctablinks', 'Osaka')">Osaka</button>
+            <?php
+                foreach($characters as $character) { 
+                    $charName = $character['name'];
+                    $charId = $character['id']; ?>
+                    <button class="subtabbutton ctablinks" onclick="openSubTab(event, 'ctablinks', <?php echo $charId ?>)">
+                        <?php echo $charName; ?>
+                    </button>
+                <?php }
+            ?>
+        </div>
+
+        <!-- WORLD TAB SUBMENU -->
+        <div class="submenu" id="worldtab">
         </div>
 
         <!-- ENCYCLOPEDIA TAB SUBMENU -->
@@ -103,7 +118,7 @@
         </div>
 
         <div id="characters" class="tabcontent">
-            <iframe src="character.php"> </iframe>
+            Welcome to your Characters page!
         </div>
 
         <div id="world" class="tabcontent">
@@ -112,8 +127,20 @@
 
         <div id="encyclopedia" class="tabcontent">
             Welcome to your Encylopedia!
-            <!-- <iframe src="encyclopedia.php"> </iframe> -->
         </div>
+
+
+        <!-- CHARACTER TAB CONTENT -->
+        <?php
+            foreach($characters as $character) { 
+                $charName = $character['name'];
+                $charId = $character['id']; ?>
+                <div id=<?php echo $charId;?> class='tabcontent'> 
+                    <!-- <h3> <?php echo $charName;?> </h3> -->
+                    <iframe src="character.php"> </iframe>
+                </div>
+            <?php }
+        ?>
 
 
         <!-- ENCYCLOPEDIA TAB CONTENT -->

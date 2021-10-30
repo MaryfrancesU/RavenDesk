@@ -20,6 +20,14 @@
             mysqli_stmt_bind_param($stmt, "ss", $pid, $name);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
+
+            //Get id of inserted character and set basicinfo and appearance ids
+            $insertedCharId = mysqli_insert_id($conn);
+            $query2 = "UPDATE characters SET basic_info_id='$insertedCharId' WHERE id='$insertedCharId'";
+            $query3 = "UPDATE characters SET appearance_id='$insertedCharId' WHERE id='$insertedCharId'";
+
+            mysqli_query($conn, $query2);
+            mysqli_query($conn, $query3);
         }
         else{
             echo "Something went wrong";
