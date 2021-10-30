@@ -1,3 +1,35 @@
+<?php
+
+    //include '/home/mumeora/dbconfig.php';
+    include '../scripts/dbconfig.php';
+
+    $charid =  $_SESSION["charid"];
+    $charQuery = "SELECT name FROM characters WHERE id='$charid';";
+    $infoQuery = "SELECT alias, age, description, personality, backstory FROM char_basic_info WHERE id='$charid';";
+    $looksQuery = "SELECT eyes, hair, body, clothing, other FROM char_appearance WHERE id='$charid';";
+
+    $result1 = mysqli_query($conn, $charQuery);
+    $result2 = mysqli_query($conn, $infoQuery);
+    $result3 = mysqli_query($conn, $looksQuery);
+    $character = mysqli_fetch_all($result1, MYSQLI_ASSOC)[0];
+    $basicinfo = mysqli_fetch_all($result2, MYSQLI_ASSOC)[0];
+    $appearance = mysqli_fetch_all($result3, MYSQLI_ASSOC)[0];
+    
+    $name = $character['name'];
+    $personality = $basicinfo['personality'];
+    $backstory = $basicinfo['backstory'];
+    $alias = $basicinfo['alias'];
+    $age = $basicinfo['age'];
+    $description = $basicinfo['description'];
+    $eyes = $appearance['eyes'];
+    $hair = $appearance['hair'];
+    $body = $appearance['body'];
+    $clothing = $appearance['clothing'];
+    $other = $appearance['other'];
+
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head> 
@@ -16,7 +48,7 @@
             </div>
 
             <div id="info"> 
-                <input class="h3input" value="<?php echo "First Name Last Name"; ?>" onchange=""> <br>
+                <input class="h3input" value="<?php echo $name; ?>"> <br>
                  
                     <p  style="display: inline"> &nbsp;&nbsp; Aliases: &nbsp; </p> 
                     <input class="pinput" value="e.g The Silver Alchemist"/> <br>

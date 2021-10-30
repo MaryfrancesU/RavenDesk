@@ -33,11 +33,15 @@
         //SEND APPROPRIATE ID TO IFRAME
         else if ($_POST['request'] === "forIframe"){
             $group = $_POST['group'];
-            $entryid = $_POST['id'];
+            $id = $_POST['id'];
 
-            if ($group === "etablinks"){
-                $_SESSION["encyid"] = $entryid;
-                echo $entryid;
+            if ($group === "ctablinks"){
+                $_SESSION["charid"] = $id;
+                echo $id;
+            }
+            else if ($group === "etablinks"){
+                $_SESSION["encyid"] = $id;
+                echo $id;
                 // header("location:../pages/encyclopedia.php");
             }
         }

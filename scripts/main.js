@@ -42,6 +42,7 @@ function addCharacter(){
           alert(response);
         }
         console.log("char add sucess");
+        location.reload();
     });
 }
 
@@ -161,6 +162,10 @@ function openTab(evt, tabName) {
         console.log("send info to iframe success" + response);
         switch(group){
           case 'ctablinks':
+            subtabId.innerHTML = "<iframe src='../pages/character.php'> </iframe>";
+            break;
+          case 'wtablinks':
+            subtabId.innerHTML = "<iframe src='../pages/world.php'> </iframe>";
             break;
           case 'etablinks':
             subtabId.innerHTML = "<iframe src='../pages/encyclopedia.php'> </iframe>";

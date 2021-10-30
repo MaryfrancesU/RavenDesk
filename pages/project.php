@@ -136,7 +136,6 @@
                 $charName = $character['name'];
                 $charId = $character['id']; ?>
                 <div id=<?php echo $charId;?> class='tabcontent'> 
-                    <!-- <h3> <?php echo $charName;?> </h3> -->
                     <iframe src="character.php"> </iframe>
                 </div>
             <?php }
@@ -149,7 +148,6 @@
                 $title = $article['title'];
                 $articleid = $article['id']; ?>
                 <div id=<?php echo $articleid;?> class='tabcontent'> 
-                    <!-- <h3> <?php echo $title;?> </h3> -->
                     <iframe src="encyclopedia.php"> </iframe>
                 </div>
             <?php }
