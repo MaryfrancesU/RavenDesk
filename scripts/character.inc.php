@@ -44,6 +44,36 @@
             if ($_POST['field'] === "name"){
                 $query = "UPDATE characters SET name=? WHERE id='$id'";
             }
+            else if ($_POST['field'] === "alias"){
+                $query = "UPDATE char_basic_info SET alias=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "age"){
+                $query = "UPDATE char_basic_info SET age=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "description"){
+                $query = "UPDATE char_basic_info SET description=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "eyes"){
+                $query = "UPDATE char_appearance SET eyes=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "hair"){
+                $query = "UPDATE char_appearance SET hair=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "body"){
+                $query = "UPDATE char_appearance SET body=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "clothing"){
+                $query = "UPDATE char_appearance SET clothing=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "other"){
+                $query = "UPDATE char_appearance SET other=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "personality"){
+                $query = "UPDATE char_basic_info SET personality=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "backstory"){
+                $query = "UPDATE char_basic_info SET backstory=? WHERE id='$id'";
+            }
 
             $stmt = mysqli_stmt_init($conn);
             mysqli_stmt_prepare($stmt, $query);

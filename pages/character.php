@@ -27,6 +27,22 @@
     $clothing = $appearance['clothing'];
     $other = $appearance['other'];
 
+
+    if ($age !== NULL){ $ageDisplay = $age;}
+        else { $ageDisplay = "24";}
+    
+    if ($alias !== NULL){ $aliasDisplay = $alias;}
+        else { $aliasDisplay = "e.g The Silver Alchemist";}
+    
+    if ($eyes !== NULL){ $eyesDisplay = $eyes;}
+        else { $eyesDisplay = "color, shape... ";}
+    
+    if ($hair !== NULL){ $hairDisplay = $hair;}
+        else { $hairDisplay = "color, length, style...";}
+    
+    if ($body !== NULL){ $bodyDisplay = $body;}
+        else { $bodyDisplay = "height, weight, build...";}
+
 ?>
 
 
@@ -48,13 +64,26 @@
             </div>
 
             <div id="info"> 
-                <input class="h3input" value="<?php echo $name; ?>" onchange="updateCharacter(<?php echo $charid ?>, 'name', event)"> <br>
+                <input 
+                    class="h3input" 
+                    value="<?php echo $name; ?>" 
+                    onchange="updateCharacter(<?php echo $charid ?>, 'name', event)"
+                /> <br>
                  
-                    <p  style="display: inline"> &nbsp;&nbsp; Aliases: &nbsp; </p> 
-                    <input class="pinput" value="e.g The Silver Alchemist"/> <br>
-                
-                    <p style="display: inline"> &nbsp;&nbsp; Age: &nbsp; &nbsp; &nbsp; &nbsp;</p> 
-                    <input class="pinput" type="number" value="24"/> 
+                <p  style="display: inline"> &nbsp;&nbsp; Aliases: &nbsp; </p> 
+                <input 
+                    class="pinput" 
+                    value="<?php echo $aliasDisplay; ?>"
+                    onchange="updateCharacter(<?php echo $charid ?>, 'alias', event)"
+                /> <br>
+            
+                <p style="display: inline"> &nbsp;&nbsp; Age: &nbsp; &nbsp; &nbsp; &nbsp;</p> 
+                <input 
+                    class="pinput" 
+                    type="number" 
+                    value="<?php echo $ageDisplay; ?>" 
+                    onchange="updateCharacter(<?php echo $charid ?>, 'age', event)"
+                /> 
                 
                 <textarea class="mtextarea"> Description</textarea>
             </div>
@@ -64,17 +93,29 @@
 
                 <div class="label-input"> 
                     <p> Eyes: &nbsp; </p> 
-                    <input class="pinput" value="color, shape... "/> 
+                    <input 
+                        class="pinput" 
+                        value="<?php echo $eyesDisplay; ?>" 
+                        onchange="updateCharacter(<?php echo $charid ?>, 'eyes', event)"
+                    /> 
                 </div>
 
                 <div class="label-input"> 
                     <p> Hair: &nbsp; </p> 
-                    <input class ="pinput" value="color, length, style..."/>
+                    <input 
+                        class ="pinput" 
+                        value="<?php echo $hairDisplay; ?>" 
+                        onchange="updateCharacter(<?php echo $charid ?>, 'hair', event)"
+                    />
                 </div>
 
                 <div class="label-input"> 
                     <p> Body: &nbsp; </p> 
-                    <input class="pinput" value="height, weight, build..."/>
+                    <input 
+                        class="pinput" 
+                        value="<?php echo $bodyDisplay; ?>"
+                        onchange="updateCharacter(<?php echo $charid ?>, 'body', event)"
+                    />
                 </div>
             </div>
 
