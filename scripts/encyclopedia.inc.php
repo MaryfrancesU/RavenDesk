@@ -30,7 +30,7 @@
             if ($_POST['field'] === "title"){
                 $query = "UPDATE encyclopedia SET title=? WHERE id='$id'";
             }
-            else{
+            else if ($_POST['field'] === "desc"){
                 $query = "UPDATE encyclopedia SET description=? WHERE id='$id'";
             }
 

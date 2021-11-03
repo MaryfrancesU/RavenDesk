@@ -43,6 +43,31 @@
     if ($body !== NULL){ $bodyDisplay = $body;}
         else { $bodyDisplay = "height, weight, build...";}
 
+    if ($description !== NULL){$descDisplay = $description;}
+    else{
+        $descDisplay = "A short description of this character e.g This character is the younger sister of Robin Hood";
+    }
+
+    if ($clothing !== NULL){$clothDisplay = $clothing;}
+    else{
+        $clothDisplay = " Typical attire";
+    }
+
+    if ($other !== NULL){$otherDisplay = $other;}
+    else{
+        $otherDisplay = " Has a star shaped tattoo under left eye";
+    }
+
+    if ($personality !== NULL){$persDisplay = $personality;}
+    else{
+        $persDisplay = " Cool calm and collected";
+    }
+
+    if ($backstory !== NULL){$backDisplay = $backstory;}
+    else{
+        $backDisplay = " Was found under the roof of the nunnery ";
+    }
+
 ?>
 
 
@@ -85,7 +110,10 @@
                     onchange="updateCharacter(<?php echo $charid ?>, 'age', event)"
                 /> 
                 
-                <textarea class="mtextarea"> Description</textarea>
+                <textarea 
+                    class="mtextarea"
+                    onchange="updateCharacter(<?php echo $charid ?>, 'description', event)"><?php echo $descDisplay; ?> 
+                </textarea>
             </div>
             
             <div id="appearance1"> 
@@ -123,23 +151,35 @@
                 <h3 style="margin: 0px; visibility: hidden;"> Appearance </h3>
 
                 <p style="margin-bottom: 0px;"> Clothing </p>
-                <textarea class="stextarea"> Typical attire </textarea>
+                <textarea 
+                    class="stextarea"
+                    onchange="updateCharacter(<?php echo $charid ?>, 'clothing', event)"><?php echo $clothDisplay; ?>
+                </textarea>
 
                 <p style="margin: 0px;"> Other </p>
-                <textarea class="mtextarea"> Has a star shaped tattoo under left eye </textarea>
+                <textarea 
+                    class="mtextarea"
+                    onchange="updateCharacter(<?php echo $charid ?>, 'other', event)"><?php echo $otherDisplay; ?>
+                </textarea>
                 
 
             </div>
 
             <div id="personality"> 
                 <h3 style="margin: 0px;"> Personality </h3>
-                <textarea class="ltextarea"> Cool calm and collected </textarea>
+                <textarea 
+                    class="ltextarea"
+                    onchange="updateCharacter(<?php echo $charid ?>, 'personality', event)"><?php echo $persDisplay; ?> 
+                </textarea>
             </div>
 
             
             <div id="backstory"> 
                 <h3 style="margin: 0px;"> Backstory </h3>
-                <textarea class="ltextarea"> Was found under the roof of the nunnery </textarea>
+                <textarea 
+                    class="ltextarea"
+                    onchange="updateCharacter(<?php echo $charid ?>, 'backstory', event)"><?php echo $backDisplay; ?>
+                </textarea>
             </div>
         </div>
 
