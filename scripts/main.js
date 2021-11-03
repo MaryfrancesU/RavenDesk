@@ -272,6 +272,19 @@ function updateBook(id, field, event) {
   })
 }
 
+function updatePlotPoint(event) {
+  var id = event.target.id;
+  var newvalue = event.target.innerHTML;
+  $.ajax({
+      url: "../scripts/plot.inc.php",
+      type: "POST",	
+      data : {request: "edit", id: id, field: "pp", newvalue: newvalue},
+      success: function(response){
+        console.log("update plot point " + id + " success" + newvalue);
+      }			
+  })
+}
+
 function updateCharacter(id, field, event) {
   var newvalue = event.currentTarget.value;
   $.ajax({

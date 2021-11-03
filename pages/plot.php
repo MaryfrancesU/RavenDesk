@@ -32,14 +32,19 @@
 
         <?php 
             foreach($plotpoints as $pp) { 
+                $id = $pp['id'];
                 $content = $pp['content']; ?>
-                <div class="plot-point">
+                <div 
+                    class="plot-point" 
+                    contenteditable="true"
+                    id=<?php echo $id;?>
+                    onfocusout="updatePlotPoint(event)"
+                >
                     <?php echo $content; ?>
                 </div>
             <?php }
-        ?>
-
-
+        ?> 
+        
         <div id="plot-footer">
             <div id="footer-row">
                 <textarea id="ppta">Type next plot point here...</textarea>

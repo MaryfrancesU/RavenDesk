@@ -48,8 +48,8 @@
             if ($_POST['field'] === "title"){
                 $query = "UPDATE books SET title=? WHERE id='$id'";
             }
-            else if ($_POST['field'] === "type"){
-                $query = "UPDATE world SET type=? WHERE id='$id'";
+            else if ($_POST['field'] === "pp"){
+                $query = "UPDATE plot_points SET content=? WHERE id='$id'";
             }
 
             $stmt = mysqli_stmt_init($conn);
