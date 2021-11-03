@@ -26,8 +26,26 @@
         <input 
             class="h3input" 
             value="<?php echo $title; ?>" 
+            style="margin-left: 12%; text-align: center;"
             onchange="updateBook(<?php echo $bookid ?>, 'title', event)"
         /> <br>
+
+        <?php 
+            foreach($plotpoints as $pp) { 
+                $content = $pp['content']; ?>
+                <div class="plot-point">
+                    <?php echo $content; ?>
+                </div>
+            <?php }
+        ?>
+
+
+        <div id="plot-footer">
+            <div id="footer-row">
+                <textarea id="ppta">Type next plot point here...</textarea>
+                <button onclick="addPlotPoint()"> Add </button>
+            </div>
+        </div>
     </body>
 
 </html>

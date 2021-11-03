@@ -22,6 +22,23 @@
             mysqli_stmt_close($stmt);
         }
 
+        //ADD PLOT POINT
+        else if ($_POST['request'] === "addpp"){
+            $content = $_POST['content'];
+            $bid = $_SESSION['bookid'];
+            $sql = "INSERT INTO plot_points(book_id, content) VALUES(?,?);";
+            $stmt = mysqli_stmt_init($conn);
+
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                header("location:../pages/project.php?pid=$pid&error=inStmtFail");
+                exit();
+            }
+    
+            mysqli_stmt_bind_param($stmt, "ss", $bid, $content);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        }
+
 
         //EDIT BOOK/PLOT POINTS
         else if ($_POST['request'] === "edit"){

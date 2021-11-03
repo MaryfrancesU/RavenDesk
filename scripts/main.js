@@ -62,6 +62,20 @@ function addBook(){
     });
 }
 
+function addPlotPoint(){
+	var plotpoint = $("#ppta").val();
+
+	$.post("../scripts/plot.inc.php", 
+		{ request: "addpp", content: plotpoint },
+    	function(response) {
+        if (response){
+          alert(response);
+        }
+        console.log("plot point add sucess");
+        location.reload();
+    });
+}
+
 function addLocation(){
 	closeModal("addLocationModal");
 
