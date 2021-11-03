@@ -27,12 +27,17 @@
     $charResult = mysqli_query($conn, $charQuery);
 	$characters = mysqli_fetch_all($charResult, MYSQLI_ASSOC);
 
+    //Get all project locations
+    $worldQuery = "SELECT id, name FROM world WHERE project_id='$currprojid';";
+    $worldResult = mysqli_query($conn, $worldQuery);
+	$locations = mysqli_fetch_all($worldResult, MYSQLI_ASSOC);
 
-    //Get all project encyclopedia entries, then sort alphabetically
+    //Get all project encyclopedia entries
     $encyQuery = "SELECT id, title, description FROM encyclopedia WHERE project_id='$currprojid';";
     $encyResult = mysqli_query($conn, $encyQuery);
 	$articles = mysqli_fetch_all($encyResult, MYSQLI_ASSOC);
 
+    //Sort alphabetically
     $titlearr = array();
     foreach ($articles as $key => $row) {
         $titlearr[$key] = $row['title'];
@@ -89,7 +94,18 @@
         </div>
 
         <!-- WORLD TAB SUBMENU -->
-        <div class="submenu" id="worldtab">
+        <div class="subtabmenu" id="worldtab">
+            <button class="addbutton" onclick="openModal('addLocationModal')"> + </button>
+
+            <?php
+                foreach($locations as $location) { 
+                    $locName = $location['name'];
+                    $locId = $location['id']; ?>
+                    <button class="subtabbutton wtablinks" onclick="openSubTab(event, 'wtablinks', <?php echo $locId ?>)">
+                        <?php echo $locName; ?>
+                    </button>
+                <?php }
+            ?>
         </div>
 
         <!-- ENCYCLOPEDIA TAB SUBMENU -->
@@ -122,7 +138,7 @@
         </div>
 
         <div id="world" class="tabcontent">
-            <iframe src="world.php"> </iframe>
+            Welcome to your world page!
         </div>
 
         <div id="encyclopedia" class="tabcontent">
@@ -142,6 +158,18 @@
         ?>
 
 
+        <!-- WORLD TAB CONTENT -->
+        <?php
+            foreach($locations as $location) { 
+                $locName = $location['name'];
+                $locId = $location['id']; ?>
+                <div id=<?php echo $locId;?> class='tabcontent'> 
+                    <iframe src="world.php"> </iframe>
+                </div>
+            <?php }
+        ?>
+
+
         <!-- ENCYCLOPEDIA TAB CONTENT -->
         <?php
             foreach($articles as $article) { 
@@ -155,24 +183,6 @@
 
 
 
-        <!-- OTHER TAB CONTENT -->
-        <div id="Tokyo" class="tabcontent">
-            <h3>Tokyo</h3>
-            <p>Tokyo is the most well-known city in Japan.</p>
-        </div>
-
-        <div id="Kyoto" class="tabcontent">
-            <h3>Kyoto</h3>
-            <p>Kyoto is the former capital of Japan.</p>
-        </div>
-
-        <div id="Osaka" class="tabcontent">
-            <h3>Osaka</h3>
-            <p>Osaka is a city in the south of Japan.</p>
-        </div>
-
-
-
         <!-- MODALS -->
         <div id="addCharacterModal" class="modal">
             <div class="modal-content">
@@ -181,6 +191,17 @@
                 <form method="post">
                     <input id="charName" placeholder="Character Name"/>
                     <button type="button" onclick="addCharacter()"> Create </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="addLocationModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('addLocationModal')"> &times; </span>
+                
+                <form method="post">
+                    <input id="locationName" placeholder="Location Name"/>
+                    <!-- <button type="button" onclick="addLocation()"> Create </button> -->
                 </form>
             </div>
         </div>

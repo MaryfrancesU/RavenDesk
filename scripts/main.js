@@ -108,19 +108,29 @@ function openTab(evt, tabName) {
     //Show tabcontent and subtab menu if applicable
     if(tabName == 'characters'){
       document.getElementById("tabmenu").style.width = "15%";
+      document.getElementById("worldtab").style.display = "none";
       document.getElementById("encytab").style.display = "none";
       document.getElementById("chartab").style.display = "block"; //submenu
       document.getElementById(tabName).style.display = "block";   //tabcontent
     }
+    else if(tabName == 'world'){
+      document.getElementById("tabmenu").style.width = "15%";
+      document.getElementById("chartab").style.display = "none";
+      document.getElementById("encytab").style.display = "none";
+      document.getElementById("worldtab").style.display = "block";
+      document.getElementById(tabName).style.display = "block";
+    }
     else if(tabName == 'encyclopedia'){
       document.getElementById("tabmenu").style.width = "15%";
       document.getElementById("chartab").style.display = "none";
+      document.getElementById("worldtab").style.display = "none";
       document.getElementById("encytab").style.display = "block";
       document.getElementById(tabName).style.display = "block";
     }
-    else {
+    else { //for blurb
       document.getElementById("tabmenu").style.width = "30%";
       document.getElementById("chartab").style.display = "none";
+      document.getElementById("worldtab").style.display = "none";
       document.getElementById("encytab").style.display = "none";
       document.getElementById(tabName).style.display = "block";
     }  
