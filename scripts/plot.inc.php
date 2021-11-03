@@ -23,13 +23,13 @@
         }
 
 
-        //EDIT PLOT POINTS
+        //EDIT BOOK/PLOT POINTS
         else if ($_POST['request'] === "edit"){
             $id = $_POST['id'];
             $newvalue = $_POST['newvalue'];
 
-            if ($_POST['field'] === "name"){
-                $query = "UPDATE world SET name=? WHERE id='$id'";
+            if ($_POST['field'] === "title"){
+                $query = "UPDATE books SET title=? WHERE id='$id'";
             }
             else if ($_POST['field'] === "type"){
                 $query = "UPDATE world SET type=? WHERE id='$id'";

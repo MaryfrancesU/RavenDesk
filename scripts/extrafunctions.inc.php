@@ -35,7 +35,11 @@
             $group = $_POST['group'];
             $id = $_POST['id'];
 
-            if ($group === "ctablinks"){
+            if ($group === "ptablinks"){
+                $_SESSION["bookid"] = $id;
+                echo $id;
+            }
+            else if ($group === "ctablinks"){
                 $_SESSION["charid"] = $id;
                 echo $id;
             }

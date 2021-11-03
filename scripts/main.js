@@ -246,6 +246,18 @@ function updateBlurb(event) {
   })
 }
 
+function updateBook(id, field, event) {
+  var newvalue = event.currentTarget.value;
+  $.ajax({
+      url: "../scripts/plot.inc.php",
+      type: "POST",	
+      data : {request: "edit", id:id, field: field, newvalue: newvalue},
+      success: function(response){
+        console.log("update book success");
+      }			
+  })
+}
+
 function updateCharacter(id, field, event) {
   var newvalue = event.currentTarget.value;
   $.ajax({
