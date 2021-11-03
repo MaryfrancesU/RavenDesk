@@ -25,6 +25,31 @@
 
         //EDIT LOCATION
         else if ($_POST['request'] === "edit"){
+            $id = $_POST['id'];
+            $newvalue = $_POST['newvalue'];
+
+            if ($_POST['field'] === "name"){
+                $query = "UPDATE world SET name=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "type"){
+                $query = "UPDATE world SET type=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "description"){
+                $query = "UPDATE world SET description=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "location"){
+                $query = "UPDATE world SET location=? WHERE id='$id'";
+            }
+            else if ($_POST['field'] === "other"){
+                $query = "UPDATE world SET other=? WHERE id='$id'";
+            }
+
+            $stmt = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($stmt, $query);
+
+            mysqli_stmt_bind_param($stmt, "s", $newvalue);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
             
         }
 

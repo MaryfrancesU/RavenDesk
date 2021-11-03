@@ -125,6 +125,39 @@ body {
   grid-column: 1 / span 4;
 }
 
+/* WORLD PAGE */
+#world-grid-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25ch 22ch 50ch;
+  padding: 1%;
+}
+
+#world-grid-container div {
+  padding: 5px;
+}
+
+#world-grid-container #item1 {
+  background-color: lightpink;
+  word-wrap: break-word;
+  grid-column: 1 / span 2;
+}
+
+#world-grid-container #info {
+  background-color: #ec6078;
+  grid-column: 3 / span 2;
+}
+
+#world-grid-container #location {
+  background-color: lightgreen;
+  grid-column: 1 / span 4;
+}
+
+#world-grid-container #other {
+  background-color: lightblue;
+  grid-column: 1 / span 4;
+}
+
 /* ALL PAGES */
 textarea {
   font-family: "Lucida Console", "Courier New", monospace;

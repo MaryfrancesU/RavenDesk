@@ -76,6 +76,41 @@ body{
 
 
 
+/* WORLD PAGE */
+#world-grid-container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25ch 22ch 50ch;
+    padding: 1%;
+
+    div{
+        padding: 5px;
+    }
+
+    #item1{
+        background-color: lightpink;
+        word-wrap: break-word;
+        grid-column: 1 / span 2;
+    }
+
+    #info{
+        background-color: rgb(236, 96, 120);
+        grid-column: 3 / span 2;
+    }
+      
+    #location{
+        background-color: lightgreen;
+        grid-column: 1 / span 4;
+    }
+    
+    #other{
+        background-color: lightblue;
+        grid-column: 1 / span 4
+    }
+}
+
+
+
 
 /* ALL PAGES */
 textarea{

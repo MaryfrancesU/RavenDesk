@@ -227,6 +227,18 @@ function updateCharacter(id, field, event) {
   })
 }
 
+function updateLocation(id, field, event) {
+  var newvalue = event.currentTarget.value;
+  $.ajax({
+      url: "../scripts/world.inc.php",
+      type: "POST",	
+      data : {request: "edit", id:id, field: field, newvalue: newvalue},
+      success: function(response){
+        console.log("update location success");
+      }			
+  })
+}
+
 function updateArticle(id, field, event) {
   var newvalue = event.currentTarget.value;
   $.ajax({
