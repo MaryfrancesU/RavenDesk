@@ -22,6 +22,11 @@
     }
 
 
+    //Get all project books
+    $bookQuery = "SELECT id, title FROM books WHERE project_id='$currprojid';";
+    $bookResult = mysqli_query($conn, $bookQuery);
+	$books = mysqli_fetch_all($bookResult, MYSQLI_ASSOC);
+
     //Get all project characters
     $charQuery = "SELECT id, name FROM characters WHERE project_id='$currprojid';";
     $charResult = mysqli_query($conn, $charQuery);
@@ -78,6 +83,21 @@
         </div>
 
 
+        <!-- PLOT TAB SUBMENU -->
+        <div class="subtabmenu" id="plottab">
+            <button class="addbutton" onclick="openModal('addBookModal')"> + </button>
+
+            <?php
+                foreach($books as $book) { 
+                    $bookName = $book['title'];
+                    $bookId = $book['id']; ?>
+                    <button class="subtabbutton ptablinks" onclick="openSubTab(event, 'ptablinks', <?php echo $bookId ?>)">
+                        <?php echo $bookName; ?>
+                    </button>
+                <?php }
+            ?>
+        </div>
+
         <!-- CHARACTER TAB SUBMENU -->
         <div class="subtabmenu" id="chartab">
             <button class="addbutton" onclick="openModal('addCharacterModal')"> + </button>
@@ -130,7 +150,7 @@
         </div>
 
         <div id="plot" class="tabcontent">
-            <iframe src="plot.php"> </iframe>
+            Welcome to your Plot page1
         </div>
 
         <div id="characters" class="tabcontent">
@@ -144,6 +164,18 @@
         <div id="encyclopedia" class="tabcontent">
             Welcome to your Encyclopedia!
         </div>
+
+
+        <!-- PLOT TAB CONTENT -->
+        <?php
+            foreach($books as $book) { 
+                $bookName = $book['title'];
+                $bookId = $book['id']; ?>
+                <div id=<?php echo $bookId;?> class='tabcontent'> 
+                    <iframe src="plot.php"> </iframe>
+                </div>
+            <?php }
+        ?>
 
 
         <!-- CHARACTER TAB CONTENT -->
@@ -184,6 +216,17 @@
 
 
         <!-- MODALS -->
+        <div id="addBookModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('addBookModal')"> &times; </span>
+                
+                <form method="post">
+                    <input id="bookName" placeholder="Book 1"/>
+                    <button type="button" onclick="addBook()"> Create </button>
+                </form>
+            </div>
+        </div>
+
         <div id="addCharacterModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addCharacterModal')"> &times; </span>

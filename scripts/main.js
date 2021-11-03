@@ -46,6 +46,22 @@ function addCharacter(){
     });
 }
 
+function addBook(){
+	closeModal("addBookModal");
+
+	var bookName = $("#bookName").val();
+
+	$.post("../scripts/plot.inc.php", 
+		{ request: "add", name: bookName },
+    	function(response) {
+        if (response){
+          alert(response);
+        }
+        console.log("book add sucess");
+        location.reload();
+    });
+}
+
 function addLocation(){
 	closeModal("addLocationModal");
 
@@ -122,8 +138,17 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
   
     //Show tabcontent and subtab menu if applicable
-    if(tabName == 'characters'){
+    if(tabName == 'plot'){
       document.getElementById("tabmenu").style.width = "15%";
+      document.getElementById("chartab").style.display = "none";
+      document.getElementById("worldtab").style.display = "none";
+      document.getElementById("encytab").style.display = "none";
+      document.getElementById("plottab").style.display = "block"; //submenu
+      document.getElementById(tabName).style.display = "block";   //tabcontent
+    }
+    else if(tabName == 'characters'){
+      document.getElementById("tabmenu").style.width = "15%";
+      document.getElementById("plottab").style.display = "none";
       document.getElementById("worldtab").style.display = "none";
       document.getElementById("encytab").style.display = "none";
       document.getElementById("chartab").style.display = "block"; //submenu
@@ -131,6 +156,7 @@ function openTab(evt, tabName) {
     }
     else if(tabName == 'world'){
       document.getElementById("tabmenu").style.width = "15%";
+      document.getElementById("plottab").style.display = "none";
       document.getElementById("chartab").style.display = "none";
       document.getElementById("encytab").style.display = "none";
       document.getElementById("worldtab").style.display = "block";
@@ -138,6 +164,7 @@ function openTab(evt, tabName) {
     }
     else if(tabName == 'encyclopedia'){
       document.getElementById("tabmenu").style.width = "15%";
+      document.getElementById("plottab").style.display = "none";
       document.getElementById("chartab").style.display = "none";
       document.getElementById("worldtab").style.display = "none";
       document.getElementById("encytab").style.display = "block";
@@ -145,6 +172,7 @@ function openTab(evt, tabName) {
     }
     else { //for blurb
       document.getElementById("tabmenu").style.width = "30%";
+      document.getElementById("plottab").style.display = "none";
       document.getElementById("chartab").style.display = "none";
       document.getElementById("worldtab").style.display = "none";
       document.getElementById("encytab").style.display = "none";
@@ -187,6 +215,9 @@ function openTab(evt, tabName) {
       success: function(response){
         console.log("send info to iframe success" + response);
         switch(group){
+          case 'ptablinks':
+            subtabId.innerHTML = "<iframe src='../pages/plot.php'> </iframe>";
+            break;
           case 'ctablinks':
             subtabId.innerHTML = "<iframe src='../pages/character.php'> </iframe>";
             break;
