@@ -25,10 +25,35 @@
             $insertedCharId = mysqli_insert_id($conn);
             $query2 = "UPDATE characters SET basic_info_id='$insertedCharId' WHERE id='$insertedCharId'";
             $query3 = "UPDATE characters SET appearance_id='$insertedCharId' WHERE id='$insertedCharId'";
-
             mysqli_query($conn, $query2);
             mysqli_query($conn, $query3);
+
+            //Create basicinfo and appearance entries
+            $query4 = "INSERT INTO char_basic_info(id) VALUES('$insertedCharId');";
+            $query5 = "INSERT INTO char_appearance(id) VALUES('$insertedCharId');";
+            mysqli_query($conn, $query4);
+            mysqli_query($conn, $query5);
         }
+
+
+        //EDIT CHARACTER
+        else if ($_POST['request'] === "edit"){
+            $id = $_POST['id'];
+            $newvalue = $_POST['newvalue'];
+
+            if ($_POST['field'] === "name"){
+                $query = "UPDATE characters SET name=? WHERE id='$id'";
+            }
+
+            $stmt = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($stmt, $query);
+
+            mysqli_stmt_bind_param($stmt, "s", $newvalue);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        }
+
+
         else{
             echo "Something went wrong";
         }

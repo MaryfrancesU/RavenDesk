@@ -189,6 +189,18 @@ function updateBlurb(event) {
   })
 }
 
+function updateCharacter(id, field, event) {
+  var newvalue = event.currentTarget.value;
+  $.ajax({
+      url: "../scripts/character.inc.php",
+      type: "POST",	
+      data : {request: "edit", id:id, field: field, newvalue: newvalue},
+      success: function(response){
+        console.log("update char success");
+      }			
+  })
+}
+
 function updateArticle(id, field, event) {
   var newvalue = event.currentTarget.value;
   $.ajax({
@@ -196,7 +208,7 @@ function updateArticle(id, field, event) {
       type: "POST",	
       data : {request: "edit", id:id, field: field, newvalue: newvalue},
       success: function(response){
-        console.log("update artice success");
+        console.log("update article success");
       }			
   })
 }

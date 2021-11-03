@@ -48,7 +48,7 @@
             </div>
 
             <div id="info"> 
-                <input class="h3input" value="<?php echo $name; ?>"> <br>
+                <input class="h3input" value="<?php echo $name; ?>" onchange="updateCharacter(<?php echo $charid ?>, 'name', event)"> <br>
                  
                     <p  style="display: inline"> &nbsp;&nbsp; Aliases: &nbsp; </p> 
                     <input class="pinput" value="e.g The Silver Alchemist"/> <br>

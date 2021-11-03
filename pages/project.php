@@ -69,7 +69,7 @@
             <button class="tabbutton tablinks" onclick="openTab(event, 'plot')" id="ptab"> Plot </button>
             <button class="tabbutton tablinks" onclick="openTab(event, 'characters')" id="ctab"> Characters </button>
             <button class="tabbutton tablinks" onclick="openTab(event, 'world')" id="wtab"> World </button>
-            <button class="tabbutton tablinks" onclick="openTab(event, 'encyclopedia')" id="etab"> Encylopedia </button>
+            <button class="tabbutton tablinks" onclick="openTab(event, 'encyclopedia')" id="etab"> Encyclopedia </button>
         </div>
 
 
@@ -126,7 +126,7 @@
         </div>
 
         <div id="encyclopedia" class="tabcontent">
-            Welcome to your Encylopedia!
+            Welcome to your Encyclopedia!
         </div>
 
 
