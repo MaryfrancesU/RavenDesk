@@ -46,6 +46,22 @@ function addCharacter(){
     });
 }
 
+function addLocation(){
+	closeModal("addLocationModal");
+
+	var locName = $("#locationName").val();
+
+	$.post("../scripts/world.inc.php", 
+		{ request: "add", name: locName },
+    	function(response) {
+        if (response){
+          alert(response);
+        }
+        console.log("location add sucess");
+        location.reload();
+    });
+}
+
 function openModal(modalID){
 	var modal = document.getElementById(modalID);
     modal.style.display = "block";

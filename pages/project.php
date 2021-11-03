@@ -201,7 +201,7 @@
                 
                 <form method="post">
                     <input id="locationName" placeholder="Location Name"/>
-                    <!-- <button type="button" onclick="addLocation()"> Create </button> -->
+                    <button type="button" onclick="addLocation()"> Create </button>
                 </form>
             </div>
         </div>

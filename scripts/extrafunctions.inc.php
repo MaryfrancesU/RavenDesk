@@ -39,6 +39,10 @@
                 $_SESSION["charid"] = $id;
                 echo $id;
             }
+            else if ($group === "wtablinks"){
+                $_SESSION["locid"] = $id;
+                echo $id;
+            }
             else if ($group === "etablinks"){
                 $_SESSION["encyid"] = $id;
                 echo $id;
