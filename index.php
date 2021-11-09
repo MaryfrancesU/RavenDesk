@@ -33,6 +33,20 @@
                     <input type="password" name="confSignup" required placeholder="Confirm Password"> 
 
                     <button type="submit" name="submitSignup"> Sign Up </button>
+
+                    <?php
+                        if (isset($_GET["error"])){
+                            if ($_GET["error"] == "emailtaken"){
+                                echo "<p class='authError'> Email taken </p>";
+                            }
+                            else if ($_GET["error"] == "passwordmismatch"){
+                                echo "<p class='authError'> Passwords don't match </p>";
+                            }
+                            else if ($_GET["error"] == "custmtfailed" or $_GET["error"] == "etstmtfailed"){
+                                echo "<p class='authError'> Something went wrong, try again. </p>";
+                            }
+                        }
+	                ?>
                 </form>
             </div>
 
@@ -44,6 +58,17 @@
                     <input type="password" name="passLogin" required placeholder="Password">
 
                     <button type="submit" name="submitLogin"> Log In </button>
+
+                    <?php
+                        if (isset($_GET["error"])){
+                            if ($_GET["error"] == "emailerr"){
+                                echo "<p class='authError'> Email doesn't exist </p>";
+                            }
+                            else if ($_GET["error"] == "passerr"){
+                                echo "<p class='authError'> Incorrect login </p>";
+                            }
+                        }
+	            ?>
                 </form>
                 
             </div>
