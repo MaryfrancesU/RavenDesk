@@ -64,10 +64,11 @@
 
 
     <body>
-        <div id="stars"> </div>
+        <div class="stars"> </div>
         
         <div class="nav-row">
             <a href="../scripts/auth/logoutuser.inc.php"> Logout </a>
+            <a href="tutorial.php"> Tutorial </a>
             <div class="header-row">
                 <img id="logo" src="../style/img/logo.png" onclick="logo()">
                 <h1> <?php  echo $_SESSION["projname"]; ?> </h1>
