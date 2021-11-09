@@ -2,8 +2,26 @@
 @import 'modals';
 @import 'verttabs';
 
+html, body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 body{
-    background-image: url("img/background.png");
+    width: 100%;
+    height: 100vh;
+    // background-image: url("img/background.png");
+}
+
+#stars{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/background.png');
+    position: fixed;
+    z-index: -1;
 }
 
 
@@ -158,11 +176,4 @@ iframe{
         
     }
   
-}
-
-.nav-row{
-    a{
-        color: pink;
-        float: right;
-    }
 }

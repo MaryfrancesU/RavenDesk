@@ -14,6 +14,7 @@
 
 
   <body>
+    <div id="stars"> </div>
 
     <div class="header-row">
         <img id="logo" src="style/img/logo.png">

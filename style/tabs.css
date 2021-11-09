@@ -2,10 +2,17 @@
   font-family: Times, Georgia, Garamond, serif;
 }
 
+.nav-row a {
+  color: pink;
+  float: right;
+  margin-right: 5px;
+}
+
 .header-row {
   display: flex;
   flex-direction: row;
   align-items: center;
+  overflow: hidden;
 }
 
 .header-row #logo {
@@ -17,6 +24,17 @@
   margin-top: 2%;
   color: white;
   font-size: 60px;
+  height: 60px;
+  padding-bottom: 10px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.header-row h1::-webkit-scrollbar {
+  display: none;
 }
 
 .modal {

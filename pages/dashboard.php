@@ -28,6 +28,8 @@
 
 
     <body>
+        <div id="stars"> </div>
+        
         <div class="nav-row">
             <a href="../scripts/auth/logoutuser.inc.php"> Logout </a>
             <div class="header-row">

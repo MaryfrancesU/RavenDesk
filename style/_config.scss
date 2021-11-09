@@ -8,10 +8,19 @@ $tab-border-color: #ccc;
     font-family: $font-stack;
 }
 
+.nav-row{
+    a{
+        color: pink;
+        float: right;
+        margin-right: 5px;
+    }
+}
+
 .header-row {
     display: flex;
     flex-direction: row;
     align-items: center;  
+    overflow: hidden;
 
     #logo {
         width: 10%;
@@ -22,6 +31,19 @@ $tab-border-color: #ccc;
         margin-top: 2%;
         color: white;
         font-size: 60px;
+        height: 60px;
+        padding-bottom: 10px;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+
+        -ms-overflow-style: none;   //Hide scrollbar forIE and Edge 
+        scrollbar-width: none;      //Hide scrollbar for Firefox 
     }
+
+    h1::-webkit-scrollbar {         //Hide scrollbar for Chrome, Safari and Opera
+        display: none;
+    }
+    
 }
 
