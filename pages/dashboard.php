@@ -52,7 +52,7 @@
                         <div class="dropdown">
                             <span class="kebab"> &#8942; </span>
                             <div class="dropdown-content">
-                                <button onclick="renameProj()">Rename</button> <br>
+                                <?php echo "<button onclick='renameProj($projid)'>Rename</button>" ?> <br>
                                 <?php echo "<button onclick='deleteProj($projid)'> Delete </button>"; ?>
                             </div>
                         </div>
@@ -72,6 +72,18 @@
                 
                 <form method="post" action="../scripts/addproject.inc.php">
                     <input name="projectName" required placeholder="Project Name"/>
+                    <button type="submit" name="submit"> </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="renameProjectModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('renameProjectModal')"> &times; </span>
+                
+                <form onsubmit="renameProj2()">
+                    <input id="renamePid" style="display:none;"/>
+                    <input id="newProjectName" required placeholder="New Project Name"/>
                     <button type="submit" name="submit"> </button>
                 </form>
             </div>

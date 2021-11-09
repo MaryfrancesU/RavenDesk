@@ -98,7 +98,8 @@ function openModal(modalID){
 
     window.onclick = function(event) {
         if (event.target == modal) {
-          modal.style.display = "none";
+          closeModal(modalID);
+          //modal.style.display = "none";
         }
     }
 }
@@ -106,6 +107,10 @@ function openModal(modalID){
 function closeModal(modalID) {
     var modal = document.getElementById(modalID);
     modal.style.display = "none";
+
+    if (modalID === "renameProjectModal"){
+      location.reload();
+    }
 
 }
 
@@ -121,8 +126,34 @@ function deleteProj(projid){
     })
 }
 
-function renameProj(){
-    alert("Rename function not yet available.");
+function renameProj(projid){
+  var items = document.getElementsByClassName("item");
+  for (var i = 0; i < items.length; i++) {
+    items.item(i).onclick = null;
+  }
+  openModal("renameProjectModal");
+
+  //send projid to modal
+  var hiddenInput = document.getElementById("renamePid");
+  hiddenInput.value = projid;
+}
+
+function renameProj2(){
+  var hiddenInput = document.getElementById("renamePid");
+  var retrievedPID = hiddenInput.value;
+
+  var userInput = document.getElementById("newProjectName");
+  var newProjectName = userInput.value;
+
+  $.ajax({
+    url: "../scripts/extrafunctions.inc.php",	
+    type: "POST",						                
+    data : {request: "rename", projectid: retrievedPID, newname: newProjectName},
+    success: function(response){  
+        console.log("rename success");
+        location.reload();
+    }			
+  })
 }
 
 

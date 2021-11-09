@@ -55,6 +55,23 @@
         }
 
 
+        //RENAME PROJECT
+        else if ($_POST['request'] === "rename"){
+            $projectId = $_POST['projectid'];
+            $newName = $_POST['newname'];
+            
+            $query = "UPDATE projects SET name=? WHERE id='$projectId'";
+
+            $stmt = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($stmt, $query);
+
+            mysqli_stmt_bind_param($stmt, "s", $newName);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+
+        }
+
+
     }
     else{
         header("location:../pages/dashboard.php?error=norequest");
