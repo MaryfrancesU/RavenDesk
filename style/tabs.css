@@ -37,6 +37,18 @@
   display: none;
 }
 
+.button-reg {
+  background-color: #8047ef;
+  border: none;
+  color: white;
+  border-radius: 15%;
+  padding: 3px;
+}
+
+.button-reg:hover {
+  background-color: #5f18eb;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -176,6 +188,7 @@ body {
   margin: auto;
   display: flex;
   justify-content: center;
+  margin-bottom: 5px;
 }
 
 #character-grid-container #item1 .nocharimg {
@@ -235,6 +248,7 @@ body {
   margin: auto;
   display: flex;
   justify-content: center;
+  margin-bottom: 5px;
 }
 
 #world-grid-container #item1 .nolocimg {
@@ -280,6 +294,7 @@ body {
   margin: auto;
   display: flex;
   justify-content: center;
+  margin-bottom: 5px;
 }
 
 #ency-container #ency-item1 .noencyimg {

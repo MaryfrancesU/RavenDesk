@@ -50,7 +50,7 @@
                 <div class="grid-img">
                     <form method="POST" action="../scripts/addencyimg.inc.php" enctype="multipart/form-data">
                         <input type="file" name="encyImg" required/>
-                        <button type="submit" name="submitImg"> <?php echo $buttontext; ?> </button>
+                        <button class="button-reg" type="submit" name="submitImg"> <?php echo $buttontext; ?> </button>
                     </form>
                 </div>
             </div>

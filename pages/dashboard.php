@@ -72,7 +72,7 @@
                 
                 <form method="post" action="../scripts/addproject.inc.php">
                     <input name="projectName" required placeholder="Project Name"/>
-                    <button type="submit" name="submit"> Create </button>
+                    <button class="button-reg" type="submit" name="submit"> Create </button>
                 </form>
             </div>
         </div>
@@ -84,7 +84,7 @@
                 <form onsubmit="renameProj2()">
                     <input id="renamePid" style="display:none;"/>
                     <input id="newProjectName" required placeholder="New Project Name"/>
-                    <button type="submit" name="submit"> </button>
+                    <button class="button-reg" type="submit" name="submit"> Rename </button>
                 </form>
             </div>
         </div>

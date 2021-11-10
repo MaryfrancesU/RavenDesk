@@ -37,6 +37,18 @@
   display: none;
 }
 
+.button-reg {
+  background-color: #8047ef;
+  border: none;
+  color: white;
+  border-radius: 15%;
+  padding: 3px;
+}
+
+.button-reg:hover {
+  background-color: #5f18eb;
+}
+
 .modal {
   display: none;
   position: fixed;

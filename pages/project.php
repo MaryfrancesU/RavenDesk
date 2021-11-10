@@ -229,7 +229,7 @@
                 
                 <form method="post">
                     <input id="bookName" placeholder="Book 1"/>
-                    <button type="button" onclick="addBook()"> Create </button>
+                    <button class="button-reg" type="button" onclick="addBook()"> Create </button>
                 </form>
             </div>
         </div>
@@ -240,7 +240,7 @@
                 
                 <form method="post">
                     <input id="charName" placeholder="Character Name"/>
-                    <button type="button" onclick="addCharacter()"> Create </button>
+                    <button class="button-reg" type="button" onclick="addCharacter()"> Create </button>
                 </form>
             </div>
         </div>
@@ -251,7 +251,7 @@
                 
                 <form method="post">
                     <input id="locationName" placeholder="Location Name"/>
-                    <button type="button" onclick="addLocation()"> Create </button>
+                    <button class="button-reg" type="button" onclick="addLocation()"> Create </button>
                 </form>
             </div>
         </div>
@@ -262,7 +262,7 @@
                 
                 <form method="post">
                     <input id="articleTitle" placeholder="Article Name"/>
-                    <button type="button" onclick="addArticle()"> Create </button>
+                    <button class="button-reg" type="button" onclick="addArticle()"> Create </button>
                 </form>
             </div>
         </div>
