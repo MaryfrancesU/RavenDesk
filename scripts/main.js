@@ -99,7 +99,6 @@ function openModal(modalID){
     window.onclick = function(event) {
         if (event.target == modal) {
           closeModal(modalID);
-          //modal.style.display = "none";
         }
     }
 }
@@ -115,15 +114,26 @@ function closeModal(modalID) {
 }
 
 function deleteProj(projid){
-    $.ajax({
-        url: "../scripts/delproject.inc.php",		//page containing php you want to run
-        type: "POST",						                //request type
-        data : {projectid: projid},				      //data to be sent to the server
-        success: function(response){		        //function to be called if the request succeeds
-            console.log("delete success");
-            location.reload();
-        }			
-    })
+    var items = document.getElementsByClassName("item");
+    for (var i = 0; i < items.length; i++) {
+      items.item(i).onclick = null;
+    }
+    var r = confirm("Do you really want to delete this project?");
+
+    if (r == true) { 
+      $.ajax({
+          url: "../scripts/delproject.inc.php",		//page containing php you want to run
+          type: "POST",						                //request type
+          data : {projectid: projid},				      //data to be sent to the server
+          success: function(response){		        //function to be called if the request succeeds
+              console.log("delete success");
+              location.reload();
+          }			
+      })
+    }
+    else {
+      location.reload();
+    }
 }
 
 function renameProj(projid){
