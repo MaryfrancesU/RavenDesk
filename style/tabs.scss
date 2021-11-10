@@ -99,6 +99,22 @@ body{
     #item1{
         background-color: lightpink;
         word-wrap: break-word;
+       
+        .charimg{
+            width: 92%;
+            height: 70%;
+            object-fit: contain;
+            text-align: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nocharimg{
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0);
+            width: 92%;
+        } 
     }
 
     #info{
@@ -172,6 +188,15 @@ textarea{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.grid-img{
+    text-align: center;
+    justify-content: center;
+
+    button{ 
+        margin: 5px;
+    }
 }
 
 .h3input{

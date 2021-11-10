@@ -153,19 +153,23 @@
         </div>
 
         <div id="plot" class="tabcontent">
-            Welcome to your Plot page1
+            <br> Welcome to your plot page! 
+            <br> Select a book from the side menu, or click on the purple button to add a new one!
         </div>
 
         <div id="characters" class="tabcontent">
-            Welcome to your Characters page!
+            <br> Welcome to your characters page! 
+            <br> Select a character from the side menu, or click on the purple button to add a new one!
         </div>
 
         <div id="world" class="tabcontent">
-            Welcome to your world page!
+            <br> Welcome to your world page! 
+            <br> Select a location from the side menu, or click on the purple button to add a new one!
         </div>
 
         <div id="encyclopedia" class="tabcontent">
-            Welcome to your Encyclopedia!
+            <br> Welcome to your encyclopedia! 
+            <br> Select an article from the side menu, or click on the purple button to add a new one!
         </div>
 
 
@@ -282,7 +286,6 @@
             }
         ?>
 
-        <div id="ugh"> . </div>
         
     </body>
 

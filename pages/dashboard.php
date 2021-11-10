@@ -72,7 +72,7 @@
                 
                 <form method="post" action="../scripts/addproject.inc.php">
                     <input name="projectName" required placeholder="Project Name"/>
-                    <button type="submit" name="submit"> </button>
+                    <button type="submit" name="submit"> Create </button>
                 </form>
             </div>
         </div>

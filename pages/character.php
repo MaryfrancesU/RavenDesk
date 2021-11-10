@@ -68,6 +68,16 @@
         $backDisplay = " Was found under the roof of the nunnery ";
     }
 
+    //Get img id of current character
+    $query2 = "SELECT img_id FROM characters WHERE id='$charid';";
+    $result2 = mysqli_query($conn, $query2);
+    $imgId = mysqli_fetch_all($result2, MYSQLI_ASSOC)[0]["img_id"];
+
+    //Get img name
+    $query3 = "SELECT name FROM images WHERE id='$imgId';";
+    $result3 = mysqli_query($conn, $query3);
+    $imgName = mysqli_fetch_all($result3, MYSQLI_ASSOC)[0]["name"];
+
 ?>
 
 
@@ -83,9 +93,27 @@
 
         <div id="character-grid-container">
             <div id="item1">
-                <div> Image </div>
-                <input type="file" id="charImg" name="charImg" />
-                <button id="hi" type="submit" style="display:none"> Submit </button>
+                
+                <?php
+                    if ($imgId === NULL){ 
+                        $buttontext = "Upload";?>
+                        <div class="nocharimg">
+                            Choose an image for this character.
+                        </div>
+                <?php }
+                    else {
+                        $buttontext = "Update";
+                        $imageSrc = "../uploads/".$imgName;
+                        echo "<img class='charimg' src='$imageSrc'/>";
+                    }
+                ?>
+
+                <div class="grid-img">
+                    <form method="POST" action="../scripts/addcharimg.inc.php" enctype="multipart/form-data">
+                        <input type="file" name="charImg" required/>
+                        <button type="submit" name="submitImg"> <?php echo $buttontext; ?> </button>
+                    </form>
+                </div>
             </div>
 
             <div id="info"> 

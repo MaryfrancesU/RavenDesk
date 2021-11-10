@@ -168,6 +168,22 @@ body {
   word-wrap: break-word;
 }
 
+#character-grid-container #item1 .charimg {
+  width: 92%;
+  height: 70%;
+  object-fit: contain;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#character-grid-container #item1 .nocharimg {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  width: 92%;
+}
+
 #character-grid-container #info {
   background-color: #ec6078;
   grid-column: 2 / span 3;
@@ -235,6 +251,15 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.grid-img {
+  text-align: center;
+  justify-content: center;
+}
+
+.grid-img button {
+  margin: 5px;
 }
 
 .h3input {
