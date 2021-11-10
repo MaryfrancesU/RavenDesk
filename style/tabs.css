@@ -258,6 +258,41 @@ body {
   grid-column: 1 / span 4;
 }
 
+/* ENCYCLOPEDIA PAGE */
+#ency-container {
+  display: flex;
+}
+
+#ency-container #ency-item1 {
+  background-color: lightpink;
+  word-wrap: break-word;
+  width: 30%;
+  height: 20ch;
+  float: left;
+  padding: 1%;
+}
+
+#ency-container #ency-item1 .encyimg {
+  width: 92%;
+  height: 14ch;
+  object-fit: contain;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#ency-container #ency-item1 .noencyimg {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  width: 92%;
+}
+
+#ency-container #ency-item2 {
+  width: 70%;
+  margin: 10px;
+}
+
 /* ALL PAGES */
 textarea {
   font-family: "Lucida Console", "Courier New", monospace;
@@ -282,6 +317,15 @@ textarea {
   border: none;
   padding: 1% 2%;
   width: 70%;
+  font-size: 1.17em;
+  font-weight: bolder;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.h3input-2 {
+  border: none;
+  padding: 1% 2%;
+  width: 95%;
   font-size: 1.17em;
   font-weight: bolder;
   background-color: rgba(255, 255, 255, 0);
@@ -312,6 +356,20 @@ textarea {
 }
 
 .fwtextarea:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.fwtextarea-long {
+  border: none;
+  width: 90%;
+  margin-left: 5%;
+  height: 80vh;
+  overflow: auto;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.fwtextarea-long:focus {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
