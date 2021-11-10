@@ -227,6 +227,22 @@ body {
   grid-column: 1 / span 2;
 }
 
+#world-grid-container #item1 .locimg {
+  width: 92%;
+  height: 70%;
+  object-fit: contain;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#world-grid-container #item1 .nolocimg {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  width: 92%;
+}
+
 #world-grid-container #info {
   background-color: #ec6078;
   grid-column: 3 / span 2;

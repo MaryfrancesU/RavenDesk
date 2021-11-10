@@ -33,6 +33,16 @@
     else{
         $otherDisplay = "Anything else you want to mention about this place e.g climate, customs, cuisine, etc";
     }
+
+    //Get img id of current location
+    $query2 = "SELECT img_id FROM world WHERE id='$locid';";
+    $result2 = mysqli_query($conn, $query2);
+    $imgId = mysqli_fetch_all($result2, MYSQLI_ASSOC)[0]["img_id"];
+
+    //Get img name
+    $query3 = "SELECT name FROM images WHERE id='$imgId';";
+    $result3 = mysqli_query($conn, $query3);
+    $imgName = mysqli_fetch_all($result3, MYSQLI_ASSOC)[0]["name"];
 ?>
 
 
@@ -47,9 +57,26 @@
     <body>
         <div id="world-grid-container">
             <div id="item1">
-                <div> Image </div>
-                <input type="file" id="locImg" name="locImg" />
-                <button type="submit" style="display:none"> Submit </button>
+                <?php
+                    if ($imgId === NULL){ 
+                        $buttontext = "Upload";?>
+                        <div class="nolocimg">
+                            Choose an image for this location.
+                        </div>
+                <?php }
+                    else {
+                        $buttontext = "Update";
+                        $imageSrc = "../uploads/".$imgName;
+                        echo "<img class='locimg' src='$imageSrc'/>";
+                    }
+                ?>
+
+                <div class="grid-img">
+                    <form method="POST" action="../scripts/addlocimg.inc.php" enctype="multipart/form-data">
+                        <input type="file" name="locImg" required/>
+                        <button type="submit" name="submitImg"> <?php echo $buttontext; ?> </button>
+                    </form>
+                </div>
             </div>
 
             <div id="info">

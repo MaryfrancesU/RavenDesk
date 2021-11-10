@@ -212,12 +212,4 @@
         </div>
 
     </body>
-
-    <script>
-        $("#charImg").on("change", function(){
-            $("#hi").css ("display", "block");
-        });
-
-    </script>
-
 </html>
