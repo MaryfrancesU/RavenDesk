@@ -15,51 +15,69 @@ function addProject() {
 }
 
 function addArticle(){
-  closeModal("addEncyclopediaModal");
+  var articleTitle = $("#articleTitle").val();
 
-	var articleTitle = $("#articleTitle").val();
+  if(articleTitle == ""){
+    alert("Please enter a title for your article.");
+  }
 
-	$.post("../scripts/encyclopedia.inc.php", 
-		{ request: "add", title: articleTitle },
-    	function(response) {
-        if (response){
-          alert(response);
-        }
-        console.log("article add sucess");
-        location.reload();
-    });
+  else{
+    closeModal("addEncyclopediaModal");
+
+    $.post("../scripts/encyclopedia.inc.php", 
+      { request: "add", title: articleTitle },
+        function(response) {
+          if (response){
+            alert(response);
+          }
+          console.log("article add sucess");
+          location.reload();
+      });
+    }
 }
 
 function addCharacter(){
-	closeModal("addCharacterModal");
-
 	var charName = $("#charName").val();
+  
+  if(charName == ""){
+    alert("Please enter a name.");
+  }
 
-	$.post("../scripts/character.inc.php", 
-		{ request: "add", name: charName },
-    	function(response) {
-        if (response){
-          alert(response);
-        }
-        console.log("char add sucess");
-        location.reload();
+  else{
+    closeModal("addCharacterModal");
+
+    $.post("../scripts/character.inc.php", 
+      { request: "add", name: charName },
+        function(response) {
+          if (response){
+            alert(response);
+          }
+          console.log("char add sucess");
+          location.reload();
     });
+  }
 }
 
 function addBook(){
-	closeModal("addBookModal");
+  var bookName = $("#bookName").val();
 
-	var bookName = $("#bookName").val();
+  if(bookName == ""){
+    alert("Please enter a name.");
+  }
 
-	$.post("../scripts/plot.inc.php", 
-		{ request: "add", name: bookName },
-    	function(response) {
-        if (response){
-          alert(response);
-        }
-        console.log("book add sucess");
-        location.reload();
-    });
+  else{
+	  closeModal("addBookModal");
+
+    $.post("../scripts/plot.inc.php", 
+      { request: "add", name: bookName },
+        function(response) {
+          if (response){
+            alert(response);
+          }
+          console.log("book add sucess");
+          location.reload();
+      });
+  }
 }
 
 function addPlotPoint(){
@@ -77,19 +95,25 @@ function addPlotPoint(){
 }
 
 function addLocation(){
-	closeModal("addLocationModal");
-
 	var locName = $("#locationName").val();
 
-	$.post("../scripts/world.inc.php", 
-		{ request: "add", name: locName },
-    	function(response) {
-        if (response){
-          alert(response);
-        }
-        console.log("location add sucess");
-        location.reload();
-    });
+  if(locName == ""){
+    alert("Please enter a name.");
+  }
+
+  else{
+    closeModal("addLocationModal");
+
+    $.post("../scripts/world.inc.php", 
+      { request: "add", name: locName },
+        function(response) {
+          if (response){
+            alert(response);
+          }
+          console.log("location add sucess");
+          location.reload();
+      });
+  }
 }
 
 function openModal(modalID){
@@ -360,4 +384,34 @@ function updateArticle(id, field, event) {
         console.log("update article success");
       }			
   })
+}
+
+function importChar(parameter){
+  if (parameter == "dropdown1"){
+    $(".hiddenCharDD").css("display", "none");
+    var e = document.getElementById("imchar");
+    var selectedId = e.value;
+    var hi = "imchar"+selectedId;
+    document.getElementById(hi).style.display = "block";
+  }
+  else if (parameter == "dropdown2"){
+    document.getElementById("icb").style.display = "block";
+  }
+
+  else{
+    var projid = document.getElementById("imchar").value;
+    var charOption = document.getElementById("imchar"+projid);
+    var charid = charOption.value;
+    console.log("Imported character \t P: " + projid + ", C: " + charid);
+
+    $.ajax({
+      url: "../scripts/character.inc.php",
+      type: "POST",	
+      data : {request: "import", projid:projid, charid: charid },
+      success: function(response){
+        location.reload();
+      }			
+    })
+  }
+  
 }

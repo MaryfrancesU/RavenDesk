@@ -36,6 +36,58 @@
         }
 
 
+        //IMPORT CHARACTER
+        else if ($_POST['request'] === "import"){
+            $pid = $_SESSION['projid'];
+            $projid = $_POST['projid'];
+            $charid = $_POST['charid'];
+
+            $charQuery = "SELECT name FROM characters WHERE id='$charid';";
+            $infoQuery = "SELECT alias, age, description, personality, backstory FROM char_basic_info WHERE id='$charid';";
+            $looksQuery = "SELECT eyes, hair, body, clothing, other FROM char_appearance WHERE id='$charid';";
+
+            $result1 = mysqli_query($conn, $charQuery);
+            $result2 = mysqli_query($conn, $infoQuery);
+            $result3 = mysqli_query($conn, $looksQuery);
+            $character = mysqli_fetch_all($result1, MYSQLI_ASSOC)[0];
+            $basicinfo = mysqli_fetch_all($result2, MYSQLI_ASSOC)[0];
+            $appearance = mysqli_fetch_all($result3, MYSQLI_ASSOC)[0];
+
+            $name = $character['name'];
+            $personality = $basicinfo['personality'];
+            $backstory = $basicinfo['backstory'];
+            $alias = $basicinfo['alias'];
+            $age = $basicinfo['age'];
+            $description = $basicinfo['description'];
+            $eyes = $appearance['eyes'];
+            $hair = $appearance['hair'];
+            $body = $appearance['body'];
+            $clothing = $appearance['clothing'];
+            $other = $appearance['other'];
+           
+            //Create new character under current project
+            $importQuery = "INSERT INTO characters(project_id, name) VALUES('$pid', '$name');";
+            mysqli_query($conn, $importQuery);
+
+            //add basic info and appearance id field to characters table
+            $insertedCharId = mysqli_insert_id($conn);
+            $query1 = "UPDATE characters SET basic_info_id='$insertedCharId', appearance_id='$insertedCharId' WHERE id='$insertedCharId'";
+            mysqli_query($conn, $query1);
+
+            //Create basicinfo and appearance entries
+            $query2 = "INSERT INTO char_basic_info(id) VALUES('$insertedCharId');";
+            $query3 = "INSERT INTO char_appearance(id) VALUES('$insertedCharId');";
+            mysqli_query($conn, $query2);
+            mysqli_query($conn, $query3);
+
+            //now add all info
+            $importInfoQuery = "UPDATE char_basic_info SET alias='$alias', age='$age', description='$description', personality='$personality', backstory='$backstory' WHERE id='$insertedCharId'";
+            $importLooksQuery = "UPDATE char_appearance SET eyes='$eyes', hair='$hair', body='$body', clothing='$clothing', other='$other' WHERE id='$insertedCharId'";
+            mysqli_query($conn, $importInfoQuery);
+            mysqli_query($conn, $importLooksQuery);
+        }
+        
+        
         //EDIT CHARACTER
         else if ($_POST['request'] === "edit"){
             $id = $_POST['id'];

@@ -21,6 +21,12 @@
         header("location:../pages/dashboard.php?error=noaccess");
     }
 
+    
+    //Get all projects belonging to user
+    $curruserid = intval($currentProject[0]['user_id']);
+    $query2 = "SELECT id, name FROM projects WHERE user_id='$curruserid';";
+    $result2 = mysqli_query($conn, $query2);
+	$userProjects = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
     //Get all project books
     $bookQuery = "SELECT id, title FROM books WHERE project_id='$currprojid';";
@@ -226,6 +232,8 @@
         <div id="addBookModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addBookModal')"> &times; </span>
+
+                <h2> Add Book </h2>
                 
                 <form method="post">
                     <input id="bookName" placeholder="Book 1"/>
@@ -234,20 +242,73 @@
             </div>
         </div>
 
+
         <div id="addCharacterModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addCharacterModal')"> &times; </span>
                 
+                <h2> Add Character </h2>
+
+                <h4> Create New Character </h4>
                 <form method="post">
                     <input id="charName" placeholder="Character Name"/>
                     <button class="button-reg" type="button" onclick="addCharacter()"> Create </button>
                 </form>
-            </div>
-        </div>
+
+                <br> <h4> Import Character </h4>
+                <select id="imchar" class="modal-dropdown" onchange="importChar('dropdown1')">
+                    <option value="none" selected disabled hidden> Choose Project </option>
+                    <?php
+                    foreach($userProjects as $project) { 
+                        $dpname = $project['name'];
+                        $dpid = $project['id']; ?>
+
+                        <option value=<?php echo $dpid;?>> 
+                            <?php echo $dpname ?>
+                        </option>
+                    <?php } ?>
+                </select>
+
+                <br>
+                <?php
+                    foreach($userProjects as $project) { 
+                        $dpname = $project['name'];
+                        $dpid = $project['id']; ?>
+
+                        <select id=<?php echo "imchar".$dpid;?>  style="display: none;" 
+                            class="hiddenCharDD modal-dropdown"
+                            onchange="importChar('dropdown2')"
+                        >
+                            <option value="none" selected disabled hidden> Choose Character </option>
+                        
+                            <?php
+                            $imChar = "SELECT id, name FROM characters WHERE project_id='$dpid';";
+                            $imcharResult = mysqli_query($conn, $imChar);
+                            $imcharacters = mysqli_fetch_all($imcharResult, MYSQLI_ASSOC);
+
+                            foreach($imcharacters as $char) { 
+                                $dcname = $char['name'];
+                                $dcid = $char['id']; ?>
+
+                                <option value=<?php echo $dcid;?>> <?php echo $dcname ?> </option>
+                            <?php } ?>
+                        </select>
+
+                    <?php }
+                ?>
+
+                <button id="icb" class="button-reg" style="display: none;" type="button" onclick="importChar('import')"> Import </button>
+
+
+            </div> <!-- end of modal-content -->
+        </div> <!-- end of add character modal -->
+
 
         <div id="addLocationModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addLocationModal')"> &times; </span>
+
+                <h2> Add Location </h2>
                 
                 <form method="post">
                     <input id="locationName" placeholder="Location Name"/>
@@ -259,6 +320,8 @@
         <div id="addEncyclopediaModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addEncyclopediaModal')"> &times; </span>
+
+                <h2> Add Encyclopedia Article </h2>
                 
                 <form method="post">
                     <input id="articleTitle" placeholder="Article Name"/>
