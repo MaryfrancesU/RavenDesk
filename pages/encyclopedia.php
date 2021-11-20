@@ -20,6 +20,8 @@
      $result3 = mysqli_query($conn, $query3);
      $imgName = mysqli_fetch_all($result3, MYSQLI_ASSOC)[0]["name"];
 
+     $encyPlaceholder = "Start typing here...";
+
 ?>
 
 <!DOCTYPE html>
@@ -58,12 +60,11 @@
             <div id="ency-item2">
                 <input class="h3input-2" value="<?php echo $title; ?>" onchange="updateArticle(<?php echo $encyid ?>, 'title', event)">
 
-                <textarea class="fwtextarea-long" onchange="updateArticle(<?php echo $encyid ?>, 'desc', event)"><?php if($description !== NULL){echo $description;}
-                        else{
-                            echo "Start typing here...";
-                        }
-                    ?>
-                </textarea>
+                <textarea 
+                    class="fwtextarea-long" 
+                    onchange="updateArticle(<?php echo $encyid ?>, 'desc', event)"
+                    placeholder="<?php echo htmlentities($encyPlaceholder);?>"
+                ><?php if($description !== NULL){echo $description;}?></textarea>
             </div>
         </div>
     </body>

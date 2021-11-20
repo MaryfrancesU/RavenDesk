@@ -28,45 +28,17 @@
     $other = $appearance['other'];
 
 
-    if ($age !== NULL){ $ageDisplay = $age;}
-        else { $ageDisplay = "24";}
     
-    if ($alias !== NULL){ $aliasDisplay = $alias;}
-        else { $aliasDisplay = "e.g The Silver Alchemist";}
-    
-    if ($eyes !== NULL){ $eyesDisplay = $eyes;}
-        else { $eyesDisplay = "color, shape... ";}
-    
-    if ($hair !== NULL){ $hairDisplay = $hair;}
-        else { $hairDisplay = "color, length, style...";}
-    
-    if ($body !== NULL){ $bodyDisplay = $body;}
-        else { $bodyDisplay = "height, weight, build...";}
-
-    if ($description !== NULL){$descDisplay = $description;}
-    else{
-        $descDisplay = "A short description of this character e.g This character is the younger sister of Robin Hood";
-    }
-
-    if ($clothing !== NULL){$clothDisplay = $clothing;}
-    else{
-        $clothDisplay = " Typical attire";
-    }
-
-    if ($other !== NULL){$otherDisplay = $other;}
-    else{
-        $otherDisplay = " Has a star shaped tattoo under left eye";
-    }
-
-    if ($personality !== NULL){$persDisplay = $personality;}
-    else{
-        $persDisplay = " Cool calm and collected";
-    }
-
-    if ($backstory !== NULL){$backDisplay = $backstory;}
-    else{
-        $backDisplay = " Was found under the roof of the nunnery ";
-    }
+    $agePlaceholder = "24";
+    $aliasPlaceholder = "e.g The Silver Alchemist";
+    $eyesPlaceholder = "color, shape... ";
+    $hairPlaceholder = "color, length, style...";
+    $bodyPlaceholder = "height, weight, build...";
+    $descPlaceholder = "A short description of this character e.g This character is the younger sister of Robin Hood";
+    $clothPlaceholder = "Typical attire";
+    $otherPlaceholder = "e.g Has a star shaped tattoo under left eye";
+    $persPlaceholder = "e.g Cool calm and collected";
+    $backPlaceholder = "e.g Was found under the roof of the nunnery ";
 
     //Get img id of current character
     $query2 = "SELECT img_id FROM characters WHERE id='$charid';";
@@ -126,22 +98,25 @@
                 <p  style="display: inline"> &nbsp;&nbsp; Aliases: &nbsp; </p> 
                 <input 
                     class="pinput" 
-                    value="<?php echo $aliasDisplay; ?>"
+                    value="<?php if($alias !== NULL){echo $alias;} ?>"
                     onchange="updateCharacter(<?php echo $charid ?>, 'alias', event)"
+                    placeholder="<?php echo htmlentities($aliasPlaceholder);?>"
                 /> <br>
             
                 <p style="display: inline"> &nbsp;&nbsp; Age: &nbsp; &nbsp; &nbsp; &nbsp;</p> 
                 <input 
                     class="pinput" 
                     type="number" 
-                    value="<?php echo $ageDisplay; ?>" 
+                    value="<?php if ($age !== NULL) {echo $age;} ?>" 
                     onchange="updateCharacter(<?php echo $charid ?>, 'age', event)"
+                    placeholder="<?php echo htmlentities($agePlaceholder);?>"
                 /> 
                 
                 <textarea 
                     class="mtextarea"
-                    onchange="updateCharacter(<?php echo $charid ?>, 'description', event)"><?php echo $descDisplay; ?> 
-                </textarea>
+                    onchange="updateCharacter(<?php echo $charid ?>, 'description', event)"
+                    placeholder="<?php echo htmlentities($descPlaceholder);?>"
+                ><?php if($description !== NULL){echo $description;} ?></textarea>
             </div>
             
             <div id="appearance1"> 
@@ -151,8 +126,9 @@
                     <p> Eyes: &nbsp; </p> 
                     <input 
                         class="pinput" 
-                        value="<?php echo $eyesDisplay; ?>" 
+                        value="<?php if ($eyes !== NULL) {echo $eyes;} ?>" 
                         onchange="updateCharacter(<?php echo $charid ?>, 'eyes', event)"
+                        placeholder="<?php echo htmlentities($eyesPlaceholder);?>"
                     /> 
                 </div>
 
@@ -160,8 +136,9 @@
                     <p> Hair: &nbsp; </p> 
                     <input 
                         class ="pinput" 
-                        value="<?php echo $hairDisplay; ?>" 
+                        value="<?php if ($hair !== NULL) {echo $hair;} ?>" 
                         onchange="updateCharacter(<?php echo $charid ?>, 'hair', event)"
+                        placeholder="<?php echo htmlentities($hairPlaceholder);?>"
                     />
                 </div>
 
@@ -169,8 +146,9 @@
                     <p> Body: &nbsp; </p> 
                     <input 
                         class="pinput" 
-                        value="<?php echo $bodyDisplay; ?>"
+                        value="<?php if ($body !== NULL) {echo $body;} ?>"
                         onchange="updateCharacter(<?php echo $charid ?>, 'body', event)"
+                        placeholder="<?php echo htmlentities($bodyPlaceholder);?>"
                     />
                 </div>
             </div>
@@ -181,14 +159,16 @@
                 <p style="margin-bottom: 0px;"> Clothing </p>
                 <textarea 
                     class="stextarea"
-                    onchange="updateCharacter(<?php echo $charid ?>, 'clothing', event)"><?php echo $clothDisplay; ?>
-                </textarea>
+                    onchange="updateCharacter(<?php echo $charid ?>, 'clothing', event)"
+                    placeholder="<?php echo htmlentities($clothPlaceholder);?>"
+                ><?php if($clothing !== NULL){echo $clothing;} ?></textarea>
 
                 <p style="margin: 0px;"> Other </p>
                 <textarea 
                     class="mtextarea"
-                    onchange="updateCharacter(<?php echo $charid ?>, 'other', event)"><?php echo $otherDisplay; ?>
-                </textarea>
+                    onchange="updateCharacter(<?php echo $charid ?>, 'other', event)"
+                    placeholder="<?php echo htmlentities($otherPlaceholder);?>"
+                ><?php if($other !== NULL){ echo $other;} ?></textarea>
                 
 
             </div>
@@ -197,8 +177,9 @@
                 <h3 style="margin: 0px;"> Personality </h3>
                 <textarea 
                     class="ltextarea"
-                    onchange="updateCharacter(<?php echo $charid ?>, 'personality', event)"><?php echo $persDisplay; ?> 
-                </textarea>
+                    onchange="updateCharacter(<?php echo $charid ?>, 'personality', event)"
+                    placeholder="<?php echo htmlentities($persPlaceholder);?>"
+                ><?php if($personality !== NULL){echo $personality;} ?></textarea>
             </div>
 
             
@@ -206,8 +187,9 @@
                 <h3 style="margin: 0px;"> Backstory </h3>
                 <textarea 
                     class="ltextarea"
-                    onchange="updateCharacter(<?php echo $charid ?>, 'backstory', event)"><?php echo $backDisplay; ?>
-                </textarea>
+                    onchange="updateCharacter(<?php echo $charid ?>, 'backstory', event)"
+                    placeholder="<?php echo htmlentities($backPlaceholder);?>"
+                ><?php if($backstory !== NULL){echo $backstory;} ?></textarea>
             </div>
         </div>
 

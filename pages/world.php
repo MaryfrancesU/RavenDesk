@@ -14,25 +14,11 @@
     $loc = $location['location'];
     $other = $location['other'];
 
-    if ($type !== NULL){$typeDisplay = $type;}
-    else{
-        $typeDisplay = "e.g country, island, kingdom";
-    }
 
-    if ($description !== NULL){$descDisplay = $description;}
-    else{
-        $descDisplay = "This is where our main characters venture on their second quest.";
-    }
-
-    if ($loc !== NULL){$locDisplay = $loc;}
-    else{
-        $locDisplay = "Explain where this is e.g this is an island off the west coast of Anatolia";
-    }
-
-    if ($other !== NULL){$otherDisplay = $other;}
-    else{
-        $otherDisplay = "Anything else you want to mention about this place e.g climate, customs, cuisine, etc";
-    }
+    $typePlaceholder = "e.g country, island, kingdom";
+    $descPlaceholder= "e.g This is where our main characters venture on their second quest.";
+    $locPlaceholder = "Explain where this is e.g this is an island off the west coast of Anatolia";
+    $otherPlaceholder = "Anything else you want to mention about this place e.g climate, customs, cuisine, etc";
 
     //Get img id of current location
     $query2 = "SELECT img_id FROM world WHERE id='$locid';";
@@ -89,30 +75,34 @@
                 <p style="display: inline"> &nbsp; Type: &nbsp; &nbsp; &nbsp; &nbsp;</p> 
                 <input 
                     class="pinput"  
-                    value="<?php echo $typeDisplay; ?>" 
+                    value="<?php if($type !== NULL){echo $type;} ?>" 
                     onchange="updateLocation(<?php echo $locid ?>, 'type', event)"
+                    placeholder="<?php echo htmlentities($typePlaceholder);?>"
                 /> <br> <br>
                 
                 <textarea 
                     class="mtextarea"
-                    onchange="updateLocation(<?php echo $locid ?>, 'description', event)"><?php echo $descDisplay; ?> 
-                </textarea>
+                    onchange="updateLocation(<?php echo $locid ?>, 'description', event)"
+                    placeholder="<?php echo htmlentities($descPlaceholder);?>"
+                ><?php if($description !== NULL){echo $description;} ?></textarea>
             </div>
 
             <div id="location">
                 <h3 style="margin: 0px;"> Location </h3>
                 <textarea 
                     class="fwtextarea"
-                    onchange="updateLocation(<?php echo $locid ?>, 'location', event)"><?php echo $locDisplay; ?> 
-                </textarea>
+                    onchange="updateLocation(<?php echo $locid ?>, 'location', event)"
+                    placeholder="<?php echo htmlentities($locPlaceholder);?>"
+                ><?php if($loc !== NULL){echo $loc;} ?></textarea>
             </div>
 
             <div id="other">
                 <h3 style="margin: 0px;"> Other </h3>
                 <textarea 
                     class="ltextarea"
-                    onchange="updateLocation(<?php echo $locid ?>, 'other', event)"><?php echo $otherDisplay; ?> 
-                </textarea> 
+                    onchange="updateLocation(<?php echo $locid ?>, 'other', event)"
+                    placeholder="<?php echo htmlentities($otherPlaceholder);?>"
+                ><?php if($other !== NULL){echo $other;} ?></textarea> 
             </div>
         </div>
 

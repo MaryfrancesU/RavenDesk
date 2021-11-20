@@ -22,6 +22,8 @@
     $result3 = mysqli_query($conn, $query3);
     $imgName = mysqli_fetch_all($result3, MYSQLI_ASSOC)[0]["name"];
 
+    $blurbPlaceholder = "Start typing your blurb here...";
+
 ?> 
 
 
@@ -56,12 +58,11 @@
             </form>
         </div>
 
-        <textarea class="fwtextarea" onchange="updateBlurb(event)"><?php if($blurb !== NULL){echo $blurb;}
-                else{
-                    echo "Start typing your blurb here...";
-                }
-            ?>
-        </textarea>
+        <textarea 
+            class="fwtextarea" 
+            onchange="updateBlurb(event)"
+            placeholder="<?php echo htmlentities($blurbPlaceholder);?>"
+        ><?php if($blurb !== NULL){echo $blurb;}?></textarea>
        
     </body>
 
