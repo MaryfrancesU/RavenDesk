@@ -84,14 +84,20 @@
   cursor: pointer;
 }
 
+.modal .modal-content input {
+  padding: 5px;
+  font-size: 16px;
+}
+
 .modal .modal-content .modal-dropdown {
   width: 50%;
-  font-size: 14px;
+  font-size: 16px;
+  padding: 5px;
   margin-bottom: 10px;
 }
 
 .modal .modal-content .modal-dropdown option {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 #addProjectModal {

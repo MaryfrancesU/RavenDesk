@@ -32,13 +32,19 @@
             }
         }
 
+        input{
+            padding: 5px;
+            font-size: 16px;
+        }
+
         .modal-dropdown{
             width: 50%;
-            font-size: 14px;
+            font-size: 16px;
+            padding: 5px;
             margin-bottom: 10px;
 
             option{
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }
