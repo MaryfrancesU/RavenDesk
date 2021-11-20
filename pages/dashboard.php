@@ -69,6 +69,8 @@
         <div id="addProjectModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addProjectModal')"> &times; </span>
+
+                <h2> Add Project </h2>
                 
                 <form method="post" action="../scripts/addproject.inc.php">
                     <input name="projectName" required placeholder="Project Name"/>
@@ -80,6 +82,8 @@
         <div id="renameProjectModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('renameProjectModal')"> &times; </span>
+
+                <h2> Rename Project </h2>
                 
                 <form onsubmit="renameProj2()">
                     <input id="renamePid" style="display:none;"/>
