@@ -340,14 +340,34 @@ function updateBook(id, field, event) {
 function updatePlotPoint(event) {
   var id = event.target.id;
   var newvalue = event.target.innerHTML;
-  $.ajax({
+
+  if (newvalue == ""){
+    var conf = confirm("Do you really want to delete this plot point?\n"
+                      + "If you select Cancel, you'll have a plot point with no text.");
+  }
+
+  if (conf == true) { //ie, yes delete
+    $.ajax({
       url: "../scripts/plot.inc.php",
       type: "POST",	
-      data : {request: "edit", id: id, field: "pp", newvalue: newvalue},
+      data : {request: "delete", id: id},
       success: function(response){
-        console.log("update plot point " + id + " success" + newvalue);
+        console.log("delete plot point " + id + " success");
+        location.reload();
       }			
-  })
+    })
+  }
+  
+  else {
+    $.ajax({
+        url: "../scripts/plot.inc.php",
+        type: "POST",	
+        data : {request: "edit", id: id, field: "pp", newvalue: newvalue},
+        success: function(response){
+          console.log("update plot point " + id + " success" + newvalue);
+        }			
+    })
+  }
 }
 
 function updateCharacter(id, field, event) {

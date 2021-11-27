@@ -61,6 +61,14 @@
             
         }
 
+        //DELETE PLOT POINT
+        else if ($_POST['request'] === "delete"){
+            $id = $_POST['id'];
+
+            $delPP = "DELETE FROM plot_points WHERE id='$id';";
+            $result = mysqli_query($conn, $delPP);
+        }
+
 
         else{
             echo "Something went wrong";
