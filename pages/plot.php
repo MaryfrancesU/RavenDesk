@@ -47,7 +47,7 @@
         
         <div id="plot-footer">
             <div id="footer-row">
-                <textarea id="ppta">Type next plot point here...</textarea>
+                <textarea id="ppta" placeholder="Type next plot point here..."></textarea>
                 <button onclick="addPlotPoint()"> Add </button>
             </div>
         </div>
