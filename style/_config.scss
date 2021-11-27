@@ -10,9 +10,20 @@ $tab-border-color: #ccc;
 
 .nav-row{
     a{
-        color: pink;
+        color: white;
         float: right;
         margin-right: 5px;
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 5px;
+        text-decoration: none;
+        padding: 5px;
+        background-color: rgba(252, 241, 243, 0.4);
+        border-radius: 5px;
+
+        &:hover{
+            color: darken(white, 30%);
+        }
     }
 }
 

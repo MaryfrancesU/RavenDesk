@@ -16,9 +16,12 @@
   <body>
     <div class="stars"> </div>
 
-    <div class="header-row">
-        <img id="logo" src="style/img/logo.png">
-        <h1> The Raven Desk </h1>
+    <div class="nav-row">
+        <a href="pages/tutorial.php"> About the Raven Desk </a>
+        <div class="header-row">
+            <img id="logo" src="style/img/logo.png">
+            <h1> The Raven Desk </h1>
+        </div>
     </div>
 
     <div class="index-container">
