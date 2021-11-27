@@ -54,6 +54,15 @@
         }
 
 
+        //DELETE LOCATION
+        else if ($_POST['request'] === "delete"){
+            $id = $_POST['id'];
+
+            $delLoca = "DELETE FROM world WHERE id='$id';";
+            $result = mysqli_query($conn, $delLoca);
+        }
+
+
         else{
             echo "Something went wrong";
         }

@@ -67,6 +67,12 @@
                 ><?php if($description !== NULL){echo $description;}?></textarea>
             </div>
         </div>
+
+        <button 
+            class="tabs-del-button" 
+            onclick="deleteArticle(<?php echo $encyid ?>)"
+        > Delete </button>
+
     </body>
 
 </html>

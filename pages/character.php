@@ -193,5 +193,10 @@
             </div>
         </div>
 
+        <button 
+            class="tabs-del-button" 
+            onclick="deleteChar(<?php echo $charid ?>)"
+        > Delete </button>
+
     </body>
 </html>

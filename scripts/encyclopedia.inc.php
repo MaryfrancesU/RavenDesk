@@ -42,6 +42,13 @@
             mysqli_stmt_close($stmt);
         }
 
+        else if ($_POST['request'] === "delete"){
+            $id = $_POST['id'];
+
+            $delEncy = "DELETE FROM encyclopedia WHERE id='$id';";
+            $result = mysqli_query($conn, $delEncy);
+        }
+
         else{
             echo "Something went wrong";
         }

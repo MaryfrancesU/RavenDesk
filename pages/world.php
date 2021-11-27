@@ -106,6 +106,11 @@
             </div>
         </div>
 
+        <button 
+            class="tabs-del-button" 
+            onclick="deleteLocation(<?php echo $locid ?>)"
+        > Delete </button>
+
         
     </body>
 

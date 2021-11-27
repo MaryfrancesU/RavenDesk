@@ -415,3 +415,53 @@ function importChar(parameter){
   }
   
 }
+
+
+
+function deleteChar(id){
+  var conf = confirm("Do you really want to delete this character?");
+
+  if (conf == true) { 
+    $.ajax({
+        url: "../scripts/character.inc.php",
+        type: "POST",
+        data : {request: "delete", id: id},
+        success: function(response){
+            console.log("delete char success");
+            parent.location.href=parent.location.href; 
+        }			
+    })
+  }
+}
+
+function deleteLocation(id){
+  var conf = confirm("Do you really want to delete this location?");
+
+  if (conf == true) { 
+    $.ajax({
+        url: "../scripts/world.inc.php",
+        type: "POST",
+        data : {request: "delete", id: id},
+        success: function(response){
+            console.log("delete loc success");
+            parent.location.href=parent.location.href; 
+        }			
+    })
+  }
+}
+
+function deleteArticle(id){
+  var conf = confirm("Do you really want to delete this article?");
+
+  if (conf == true) { 
+    $.ajax({
+        url: "../scripts/encyclopedia.inc.php",
+        type: "POST",
+        data : {request: "delete", id: id},
+        success: function(response){
+            console.log("delete ency success");
+            parent.location.href=parent.location.href; 
+        }			
+    })
+  }
+}

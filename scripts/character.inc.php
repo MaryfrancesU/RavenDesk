@@ -135,6 +135,18 @@
             mysqli_stmt_close($stmt);
         }
 
+        //DELETE CHARACTER
+        else if ($_POST['request'] === "delete"){
+            $id = $_POST['id'];
+
+            $delApp = "DELETE FROM char_appearance WHERE id='$id';";
+            $delInfo = "DELETE FROM char_basic_info WHERE id='$id';";
+            $delChar = "DELETE FROM characters WHERE id='$id';";
+            $result = mysqli_query($conn, $delApp);
+            $result = mysqli_query($conn, $delInfo);
+            $result = mysqli_query($conn, $delChar);
+        }
+
 
         else{
             echo "Something went wrong";
