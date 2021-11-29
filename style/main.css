@@ -422,6 +422,11 @@ iframe {
   width: 78%;
   height: auto;
   padding: 10px;
+  line-height: 1.6;
+}
+
+#tutorial-container #tutorial-body h1, #tutorial-container #tutorial-body h2, #tutorial-container #tutorial-body h3 {
+  margin: 0;
 }
 
 #tutorial-footer {

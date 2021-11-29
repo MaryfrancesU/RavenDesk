@@ -221,6 +221,11 @@ iframe{
         width: 78%;
         height: auto;
         padding: 10px;
+        line-height: 1.6;
+        
+        h1, h2, h3{
+            margin: 0;
+        }
     }
 }
 
