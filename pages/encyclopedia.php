@@ -1,7 +1,7 @@
 <?php
 
-    //include '/home/mumeora/dbconfig.php';
-    include '../scripts/dbconfig.php';
+    include '/home/mumeora/dbconfig.php';
+    //include '../scripts/dbconfig.php';
 
     $encyid =  $_SESSION["encyid"];
     $query = "SELECT title, description FROM encyclopedia WHERE id='$encyid';";

@@ -1,6 +1,6 @@
 <?php
-    //include '/home/mumeora/dbconfig.php';
-    include '../scripts/dbconfig.php';
+    include '/home/mumeora/dbconfig.php';
+    //include '../scripts/dbconfig.php';
 
     if (!isset($_SESSION["userid"])){
         header("location:../index.php?error=notloggedin");

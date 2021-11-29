@@ -1,7 +1,7 @@
 <?php
 
-    //include '/home/mumeora/dbconfig.php';
-    include '../scripts/dbconfig.php';
+    include '/home/mumeora/dbconfig.php';
+    //include '../scripts/dbconfig.php';
 
     $locid =  $_SESSION["locid"];
     $locQuery = "SELECT name, type, description, location, other FROM world WHERE id='$locid';";

@@ -1,7 +1,7 @@
 <?php
 
-    //include '/home/mumeora/dbconfig.php';
-    include '../scripts/dbconfig.php';
+    include '/home/mumeora/dbconfig.php';
+    //include '../scripts/dbconfig.php';
 
     $charid =  $_SESSION["charid"];
     $charQuery = "SELECT name FROM characters WHERE id='$charid';";

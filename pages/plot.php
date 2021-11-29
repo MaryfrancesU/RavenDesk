@@ -1,7 +1,7 @@
 <?php
 
-    //include '/home/mumeora/dbconfig.php';
-    include '../scripts/dbconfig.php';
+    include '/home/mumeora/dbconfig.php';
+    //include '../scripts/dbconfig.php';
 
     $bookid =  $_SESSION["bookid"];
     $bookQuery = "SELECT title FROM books WHERE id='$bookid';";

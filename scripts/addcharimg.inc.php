@@ -1,7 +1,7 @@
 <?php
 
-    //include '/home/mumeora/dbconfig.php';
-    include './dbconfig.php';
+    include '/home/mumeora/dbconfig.php';
+    //include './dbconfig.php';
 
     if (isset($_POST['submitImg'])){
         $file = $_FILES["charImg"];
