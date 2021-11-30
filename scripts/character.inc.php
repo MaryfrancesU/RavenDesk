@@ -1,7 +1,7 @@
 <?php
 
-    include '/home/mumeora/dbconfig.php';
-    //include './dbconfig.php';
+    //include '/home/mumeora/dbconfig.php';
+    include './dbconfig.php';
 
     if (isset($_POST['request'])){
 
@@ -67,12 +67,17 @@
             $other = $appearance['other'];
            
             //Create new character under current project
-            $importQuery = "INSERT INTO characters(project_id, name, img_id) VALUES('$pid', '$name', '$image');";
+            if ($image !== NULL){
+                $importQuery = "INSERT INTO characters(project_id, name, img_id) VALUES('$pid', '$name', '$image');";
+            }
+            else{
+                $importQuery = "INSERT INTO characters(project_id, name) VALUES('$pid', '$name');";
+            }
             mysqli_query($conn, $importQuery);
 
             //add basic info and appearance id field to characters table
             $insertedCharId = mysqli_insert_id($conn);
-            $query1 = "UPDATE characters SET basic_info_id='$insertedCharId', appearance_id='$insertedCharId' WHERE id='$insertedCharId'";
+            $query1 = "UPDATE characters SET basic_info_id='$insertedCharId', appearance_id='$insertedCharId' WHERE id='$insertedCharId';";
             mysqli_query($conn, $query1);
 
             //Create basicinfo and appearance entries
@@ -82,8 +87,8 @@
             mysqli_query($conn, $query3);
 
             //now add all info
-            $importInfoQuery = "UPDATE char_basic_info SET alias='$alias', age='$age', description='$description', personality='$personality', backstory='$backstory' WHERE id='$insertedCharId'";
-            $importLooksQuery = "UPDATE char_appearance SET eyes='$eyes', hair='$hair', body='$body', clothing='$clothing', other='$other' WHERE id='$insertedCharId'";
+            $importInfoQuery = "UPDATE char_basic_info SET alias='$alias', age='$age', description='$description', personality='$personality', backstory='$backstory' WHERE id='$insertedCharId';";
+            $importLooksQuery = "UPDATE char_appearance SET eyes='$eyes', hair='$hair', body='$body', clothing='$clothing', other='$other' WHERE id='$insertedCharId';";
             mysqli_query($conn, $importInfoQuery);
             mysqli_query($conn, $importLooksQuery);
         }
