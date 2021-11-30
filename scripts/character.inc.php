@@ -42,7 +42,7 @@
             $projid = $_POST['projid'];
             $charid = $_POST['charid'];
 
-            $charQuery = "SELECT name FROM characters WHERE id='$charid';";
+            $charQuery = "SELECT name, img_id FROM characters WHERE id='$charid';";
             $infoQuery = "SELECT alias, age, description, personality, backstory FROM char_basic_info WHERE id='$charid';";
             $looksQuery = "SELECT eyes, hair, body, clothing, other FROM char_appearance WHERE id='$charid';";
 
@@ -54,6 +54,7 @@
             $appearance = mysqli_fetch_all($result3, MYSQLI_ASSOC)[0];
 
             $name = $character['name'];
+            $image = $character['img_id'];
             $personality = $basicinfo['personality'];
             $backstory = $basicinfo['backstory'];
             $alias = $basicinfo['alias'];
@@ -66,7 +67,7 @@
             $other = $appearance['other'];
            
             //Create new character under current project
-            $importQuery = "INSERT INTO characters(project_id, name) VALUES('$pid', '$name');";
+            $importQuery = "INSERT INTO characters(project_id, name, img_id) VALUES('$pid', '$name', '$image');";
             mysqli_query($conn, $importQuery);
 
             //add basic info and appearance id field to characters table
