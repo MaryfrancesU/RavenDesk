@@ -1,0 +1,392 @@
+@import 'config';
+@import 'modals';
+
+$user-font: "Lucida Console", "Courier New", monospace;
+$input-focus-bg: rgba(255, 255, 255, 0.6);
+$placeholder-color: rgb(34, 34, 34);
+
+body{
+    background-color: lighten($primary-color, 35%); 
+} 
+
+
+/* BLURB PAGE */
+#bookcover{
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid black;
+    width: 28vw;
+    height: 60vh;
+    object-fit: cover;
+    margin-left: 34vw;
+    margin-bottom: 1%;
+}
+
+#nobookcover {
+    background-color: lightpink;
+    width: 28vw;
+    height: 60vh;
+    margin-left: 34vw;
+    margin-bottom: 1%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* PLOT PAGE */
+.plot-point{
+    background-color: lighten($primary-color, 20%);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 25px;
+    color: black;
+    text-align: center;
+}
+
+#plot-footer{
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 5px;
+    //background-color: $primary-color;
+    color: white;
+    text-align: center;
+
+    #footer-row{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        textarea{
+            width: 90%;
+            height: 10vh;
+            resize: none;
+            overflow: auto;
+            border-radius: 4px;
+            border: 3px solid $primary-color;
+        }
+
+        button{
+            width: 10%;
+            margin-left: 2px;
+            height: 12vh;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            background-color: lighten($primary-color, 10%);
+
+            &:hover{
+                background-color: lighten($primary-color, 5%);
+            }
+        }
+    }
+}
+
+
+/* CHARACTER PAGE */
+#character-grid-container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25ch 30ch 30ch 30ch;
+    padding: 1%;
+
+    div{
+        padding: 5px;
+    }
+
+    #item1{
+        background-color: lightpink;
+        word-wrap: break-word;
+       
+        .charimg{
+            width: 92%;
+            height: 70%;
+            object-fit: contain;
+            text-align: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        .nocharimg{
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0);
+            width: 92%;
+        } 
+    }
+
+    #info{
+        background-color: rgb(236, 96, 120); 
+        grid-column: 2 / span 3;
+    }
+    
+    #appearance1{
+        background-color: lightgreen; 
+        grid-column: 1 / span 2;
+    }
+
+    #appearance2{
+        background-color: lightgreen; //rgb(58, 235, 58)
+        grid-column: 3 / span 2;
+    }
+    #personality{
+        background-color: lightblue;
+        grid-column: 1 / span 4;
+    }
+    #backstory{
+        background-color: rgb(228, 87, 228); 
+    grid-column: 1 / span 4;
+    }
+
+}
+
+
+/* WORLD PAGE */
+#world-grid-container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25ch 22ch 50ch;
+    padding: 1%;
+
+    div{
+        padding: 5px;
+    }
+
+    #item1{
+        background-color: lightpink;
+        word-wrap: break-word;
+        grid-column: 1 / span 2;
+
+        .locimg{
+            width: 92%;
+            height: 70%;
+            object-fit: contain;
+            text-align: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        .nolocimg{
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0);
+            width: 92%;
+        }
+    }
+
+    #info{
+        background-color: rgb(236, 96, 120);
+        grid-column: 3 / span 2;
+    }
+      
+    #location{
+        background-color: lightgreen;
+        grid-column: 1 / span 4;
+    }
+    
+    #other{
+        background-color: lightblue;
+        grid-column: 1 / span 4
+    }
+}
+
+
+/* ENCYCLOPEDIA PAGE */
+#ency-container{
+    display: flex;
+
+    #ency-item1{
+        background-color: lightpink;
+        word-wrap: break-word;
+        width: 30%;
+        height: 20ch;
+        float: left;
+        padding: 1%;
+
+        .encyimg{
+            width: 92%;
+            height: 14ch;
+            object-fit: contain;
+            text-align: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        .noencyimg{
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0);
+            width: 92%;
+        }
+    }
+
+    #ency-item2{
+        width: 70%;
+        margin: 10px;
+    }
+}
+
+
+
+
+/* ALL PAGES */
+textarea{
+    font-family: $user-font;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+    color: $placeholder-color;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: $placeholder-color;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: $placeholder-color;
+    opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+    color: $placeholder-color;
+    opacity: 1;
+}
+
+.buttonrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.grid-img{
+    text-align: center;
+    justify-content: center;
+
+    button{ 
+        margin: 5px;
+    }
+}
+
+.h3input{
+    border: none;
+    padding: 1% 2%;
+    width: 70%;
+    font-size: 1.17em;
+    font-weight: bolder;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.h3input-2{
+    border: none;
+    padding: 1% 2%;
+    width: 95%;
+    font-size: 1.17em;
+    font-weight: bolder;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.pinput{
+    border: none;
+    padding: 1% 2%;
+    margin: none;
+    width: 70%;
+    font-size: 0.8em;
+    font-family: $user-font;
+    background-color: rgba(255, 255, 255, 0);
+
+    &:focus{
+        background-color: $input-focus-bg;
+    }
+}
+
+.fwtextarea{
+    border: none;
+    width: 90%;
+    margin-left: 5%;
+    height: 30vh;
+    overflow: auto;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0);
+
+    &:focus{
+        background-color: $input-focus-bg;
+    }
+}
+
+.fwtextarea-long{
+    border: none;
+    width: 90%;
+    margin-left: 5%;
+    height: 80vh;
+    overflow: auto;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0);
+
+    &:focus{
+        background-color: $input-focus-bg;
+    }
+}
+
+.ltextarea{
+    border: none;
+    width: 90%;
+    margin-left: 5%;
+    height: 88%;
+    overflow: auto;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0);
+
+    &:focus{
+        background-color: $input-focus-bg;
+    }
+}
+
+.mtextarea{
+    border: none;
+    width: 99%;
+    height: 40%;
+    overflow: auto;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0);
+
+    &:focus{
+        background-color: $input-focus-bg;
+    }
+}
+
+.stextarea{
+    border: none;
+    width: 99%;
+    height: 20%;
+    overflow: auto;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0);
+
+    &:focus{
+        background-color: $input-focus-bg;
+    }
+}
+
+.label-input{
+    white-space: nowrap;
+
+    *{
+        display: inline-block;
+    }
+}
+
+.tabs-del-button{
+    width: 10%;
+    margin-left: 45%;
+    background-color: lighten(red, 20%);
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+
+    &:hover{
+        background-color: red;
+    }
+}

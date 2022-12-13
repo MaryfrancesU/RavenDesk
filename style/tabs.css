@@ -1,0 +1,500 @@
+* {
+  font-family: Times, Georgia, Garamond, serif;
+}
+
+.nav-row a {
+  color: white;
+  float: right;
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 5px;
+  text-decoration: none;
+  padding: 5px;
+  background-color: rgba(252, 241, 243, 0.4);
+  border-radius: 5px;
+}
+
+.nav-row a:hover {
+  color: #b3b3b3;
+}
+
+.header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+
+.header-row #logo {
+  width: 10%;
+}
+
+.header-row h1 {
+  margin-left: 1%;
+  margin-top: 2%;
+  color: white;
+  font-size: 60px;
+  height: 60px;
+  padding-bottom: 10px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.header-row h1::-webkit-scrollbar {
+  display: none;
+}
+
+.button-reg {
+  background-color: #8047ef;
+  border: none;
+  color: white;
+  border-radius: 15%;
+  padding: 3px;
+}
+
+.button-reg:hover {
+  background-color: #5f18eb;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 15%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal .modal-content {
+  background-color: #d9d8d9;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 15px;
+  width: 50%;
+}
+
+.modal .modal-content .close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal .modal-content .close:hover, .modal .modal-content .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal .modal-content input {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.modal .modal-content .modal-dropdown {
+  width: 50%;
+  font-size: 16px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.modal .modal-content .modal-dropdown option {
+  font-size: 16px;
+}
+
+#addProjectModal {
+  color: black;
+}
+
+body {
+  background-color: #d1bcf9;
+}
+
+/* BLURB PAGE */
+#bookcover {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid black;
+  width: 28vw;
+  height: 60vh;
+  object-fit: cover;
+  margin-left: 34vw;
+  margin-bottom: 1%;
+}
+
+#nobookcover {
+  background-color: lightpink;
+  width: 28vw;
+  height: 60vh;
+  margin-left: 34vw;
+  margin-bottom: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PLOT PAGE */
+.plot-point {
+  background-color: #a076f3;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 25px;
+  color: black;
+  text-align: center;
+}
+
+#plot-footer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 5px;
+  color: white;
+  text-align: center;
+}
+
+#plot-footer #footer-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#plot-footer #footer-row textarea {
+  width: 90%;
+  height: 10vh;
+  resize: none;
+  overflow: auto;
+  border-radius: 4px;
+  border: 3px solid #5f18eb;
+}
+
+#plot-footer #footer-row button {
+  width: 10%;
+  margin-left: 2px;
+  height: 12vh;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: #8047ef;
+}
+
+#plot-footer #footer-row button:hover {
+  background-color: #6f2fed;
+}
+
+/* CHARACTER PAGE */
+#character-grid-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25ch 30ch 30ch 30ch;
+  padding: 1%;
+}
+
+#character-grid-container div {
+  padding: 5px;
+}
+
+#character-grid-container #item1 {
+  background-color: lightpink;
+  word-wrap: break-word;
+}
+
+#character-grid-container #item1 .charimg {
+  width: 92%;
+  height: 70%;
+  object-fit: contain;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#character-grid-container #item1 .nocharimg {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  width: 92%;
+}
+
+#character-grid-container #info {
+  background-color: #ec6078;
+  grid-column: 2 / span 3;
+}
+
+#character-grid-container #appearance1 {
+  background-color: lightgreen;
+  grid-column: 1 / span 2;
+}
+
+#character-grid-container #appearance2 {
+  background-color: lightgreen;
+  grid-column: 3 / span 2;
+}
+
+#character-grid-container #personality {
+  background-color: lightblue;
+  grid-column: 1 / span 4;
+}
+
+#character-grid-container #backstory {
+  background-color: #e457e4;
+  grid-column: 1 / span 4;
+}
+
+/* WORLD PAGE */
+#world-grid-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25ch 22ch 50ch;
+  padding: 1%;
+}
+
+#world-grid-container div {
+  padding: 5px;
+}
+
+#world-grid-container #item1 {
+  background-color: lightpink;
+  word-wrap: break-word;
+  grid-column: 1 / span 2;
+}
+
+#world-grid-container #item1 .locimg {
+  width: 92%;
+  height: 70%;
+  object-fit: contain;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#world-grid-container #item1 .nolocimg {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  width: 92%;
+}
+
+#world-grid-container #info {
+  background-color: #ec6078;
+  grid-column: 3 / span 2;
+}
+
+#world-grid-container #location {
+  background-color: lightgreen;
+  grid-column: 1 / span 4;
+}
+
+#world-grid-container #other {
+  background-color: lightblue;
+  grid-column: 1 / span 4;
+}
+
+/* ENCYCLOPEDIA PAGE */
+#ency-container {
+  display: flex;
+}
+
+#ency-container #ency-item1 {
+  background-color: lightpink;
+  word-wrap: break-word;
+  width: 30%;
+  height: 20ch;
+  float: left;
+  padding: 1%;
+}
+
+#ency-container #ency-item1 .encyimg {
+  width: 92%;
+  height: 14ch;
+  object-fit: contain;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#ency-container #ency-item1 .noencyimg {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  width: 92%;
+}
+
+#ency-container #ency-item2 {
+  width: 70%;
+  margin: 10px;
+}
+
+/* ALL PAGES */
+textarea {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome */
+  color: #222222;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #222222;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #222222;
+  opacity: 1;
+}
+
+:-moz-placeholder {
+  /* Firefox 4 - 18 */
+  color: #222222;
+  opacity: 1;
+}
+
+.buttonrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.grid-img {
+  text-align: center;
+  justify-content: center;
+}
+
+.grid-img button {
+  margin: 5px;
+}
+
+.h3input {
+  border: none;
+  padding: 1% 2%;
+  width: 70%;
+  font-size: 1.17em;
+  font-weight: bolder;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.h3input-2 {
+  border: none;
+  padding: 1% 2%;
+  width: 95%;
+  font-size: 1.17em;
+  font-weight: bolder;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.pinput {
+  border: none;
+  padding: 1% 2%;
+  margin: none;
+  width: 70%;
+  font-size: 0.8em;
+  font-family: "Lucida Console", "Courier New", monospace;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.pinput:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.fwtextarea {
+  border: none;
+  width: 90%;
+  margin-left: 5%;
+  height: 30vh;
+  overflow: auto;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.fwtextarea:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.fwtextarea-long {
+  border: none;
+  width: 90%;
+  margin-left: 5%;
+  height: 80vh;
+  overflow: auto;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.fwtextarea-long:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.ltextarea {
+  border: none;
+  width: 90%;
+  margin-left: 5%;
+  height: 88%;
+  overflow: auto;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.ltextarea:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.mtextarea {
+  border: none;
+  width: 99%;
+  height: 40%;
+  overflow: auto;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.mtextarea:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.stextarea {
+  border: none;
+  width: 99%;
+  height: 20%;
+  overflow: auto;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.stextarea:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.label-input {
+  white-space: nowrap;
+}
+
+.label-input * {
+  display: inline-block;
+}
+
+.tabs-del-button {
+  width: 10%;
+  margin-left: 45%;
+  background-color: #ff6666;
+  border: none;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.tabs-del-button:hover {
+  background-color: red;
+}

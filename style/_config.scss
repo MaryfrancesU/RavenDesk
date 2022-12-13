@@ -1,0 +1,71 @@
+$font-stack: Times, Georgia, Garamond, serif;
+$primary-color: rgb(95, 24, 235);
+$secondary-color: rgb(217, 216, 217);
+$tab-color: #f1f1f1;
+$tab-border-color: #ccc;
+
+* {
+    font-family: $font-stack;
+}
+
+.nav-row{
+    a{
+        color: white;
+        float: right;
+        margin-right: 5px;
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 5px;
+        text-decoration: none;
+        padding: 5px;
+        background-color: rgba(252, 241, 243, 0.4);
+        border-radius: 5px;
+
+        &:hover{
+            color: darken(white, 30%);
+        }
+    }
+}
+
+.header-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    overflow: hidden;
+
+    #logo {
+        width: 10%;
+    }
+    
+    h1{
+        margin-left: 1%;
+        margin-top: 2%;
+        color: white;
+        font-size: 60px;
+        height: 60px;
+        padding-bottom: 10px;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+
+        -ms-overflow-style: none;   //Hide scrollbar forIE and Edge 
+        scrollbar-width: none;      //Hide scrollbar for Firefox 
+    }
+
+    h1::-webkit-scrollbar {         //Hide scrollbar for Chrome, Safari and Opera
+        display: none;
+    }
+    
+}
+
+.button-reg{
+    background-color: lighten($primary-color, 10%);
+    border: none;
+    color: white;
+    border-radius: 15%;
+    padding: 3px;
+
+    &:hover{
+        background-color: $primary-color;
+    }
+}
