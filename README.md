@@ -38,7 +38,7 @@ As building this project locally would require much work on a visitor's part, I'
    <img src="https://user-images.githubusercontent.com/55061982/207727241-a63d4218-8166-4730-8632-a7d91c29a54d.gif" width="90%" />
 
 ### Editing a Project
-- You can start by adding a book cover and a description called a "blurb" to your project. The picture can be changed later, and the blurb is 
+- You can start by adding a book cover and a description called a **blurb** to your project. The picture can be changed later, and the blurb is 
   automatically saved as you type.
   <img src="https://user-images.githubusercontent.com/55061982/207728773-09c84363-c06d-4060-9b58-a4f5948a9da6.png" width="90%" />
   
@@ -46,7 +46,7 @@ As building this project locally would require much work on a visitor's part, I'
   or multiple books.
   <img src="https://user-images.githubusercontent.com/55061982/207729296-4a8ac583-e64d-4cdf-bc36-ba66e15dd142.png" width="90%" />
 
-  Each book has its own plot, so you can add plot threads to each book. The plot threads allow for text styling such as bold and italicized text for
+  Each book has its own **plot**, so you can add plot threads to each book. The plot threads allow for text styling such as bold and italicized text for
   emphasis. And of course, you can go back and edit a plot point if you wish. Changes are saved automatically.
   <img src="https://user-images.githubusercontent.com/55061982/207729346-0f66da84-2749-4a9e-b51c-41868a69fc42.gif" width="90%" />
   
