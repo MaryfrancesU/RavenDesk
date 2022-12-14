@@ -11,13 +11,54 @@ in an organized fashion.
 
 **Table of Contents**
 - [How to Use (Demo)](#how-to-use)
+  - [Getting Started](#getting-started)
+  - [Creating a Project](#creating-a-project)
+  - [Editing a Project (blurb, plot points, characters, etc)](#editing-a-project)
 - [Chosen Technology](#chosen-technology)
 - [Future Iterations](#future-iterations)
 
 <br>
 
 
-## How to Use
+## How to Use 
+
+As building this project locally would require much work on a visitor's part, I've decided to include a miniature demo in this readme.
+
+### Getting Started
+- The Raven Desk begins as any webapp does, with a signup/login page.
+  <img src="https://user-images.githubusercontent.com/55061982/207726437-814514ac-d720-4eb7-9dc8-49fb3e0af3b9.png" width="90%" />
+
+### Creating a Project
+
+- A logged in user will have access to the user dashboard, on which they can view all their current projects.
+  A **project** on The Raven Desk represents a single book or series an author is working on. Click on the giant plus sign to add a new project.
+  <img src="https://user-images.githubusercontent.com/55061982/207727209-9620bcfd-ceb4-45f8-bb7d-1a6585db9d95.png" width="90%" />
+  
+  It's okay if you change your mind -- a project can always be deleted or renamed later.
+   <img src="https://user-images.githubusercontent.com/55061982/207727241-a63d4218-8166-4730-8632-a7d91c29a54d.gif" width="90%" />
+
+### Editing a Project
+- You can start by adding a book cover and a description called a "blurb" to your project. The picture can be changed later, and the blurb is 
+  automatically saved as you type.
+  <img src="https://user-images.githubusercontent.com/55061982/207728773-09c84363-c06d-4060-9b58-a4f5948a9da6.png" width="90%" />
+  
+- You can also add different **books** to your project! Each book represents just that, a single book in a series. A project can contain one book
+  or multiple books.
+  <img src="https://user-images.githubusercontent.com/55061982/207729296-4a8ac583-e64d-4cdf-bc36-ba66e15dd142.png" width="90%" />
+
+  Each book has its own plot, so you can add plot threads to each book. The plot threads allow for text styling such as bold and italicized text for
+  emphasis. And of course, you can go back and edit a plot point if you wish. Changes are saved automatically.
+  <img src="https://user-images.githubusercontent.com/55061982/207729346-0f66da84-2749-4a9e-b51c-41868a69fc42.gif" width="90%" />
+  
+- A book is often most well-known for the **characters** that appear in it! Characters can be created from scratch, or even imported from other projects.
+  <img src="https://user-images.githubusercontent.com/55061982/207730080-06f3a212-8a8c-4c82-8e5f-77c05b7e455d.png" width="90%" />
+  
+  An image can be added to represent a character, and you can enter lots of useful information pertaining to a character. As always, changes are saved
+  automatically.
+  <img src="https://user-images.githubusercontent.com/55061982/207730316-7b883593-67d9-4498-8d57-24f0a3913841.gif" width="90%" />
+
+- Similarly to characters, you can also add locations to your **world**, and articles to your **encyclopedia** to represent unique things about a story
+  that don't quite fit into any other categories. The Raven Desk aims to be there for all your story needs!
 
 <br>
 
